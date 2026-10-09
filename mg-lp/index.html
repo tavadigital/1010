@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%231F3A5F%27/%3E%3Ccircle cx=%2732%27 cy=%2720%27 r=%278%27 fill=%27%23fff%27/%3E%3Cpath d=%27M14 52c0-11 8-18 18-18s18 7 18 18z%27 fill=%27%23fff%27/%3E%3Cpath d=%27M27 34l5 7 5-7z%27 fill=%27%231F3A5F%27/%3E%3Cpath d=%27M30.5 40h3l1.5 10-3 3-3-3z%27 fill=%27%231F3A5F%27/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Master Gesture | Gestur Berwibawa 30 Hari, Dipandu Hari per Hari</title>
+<meta name="description" content="Web app latihan gestur tubuh agar lebih berwibawa di kantor. Drill 3 menit sehari selama 30 hari, Cermin Pintar, playbook momen penting, dan simulator meeting.">
+<meta property="og:title" content="Master Gesture | Gestur Berwibawa 30 Hari, Dipandu Hari per Hari">
+<meta property="og:description" content="Web app latihan gestur tubuh agar lebih berwibawa di kantor. Drill 3 menit sehari selama 30 hari, Cermin Pintar, playbook momen penting, dan simulator meeting.">
+<meta name="theme-color" content="#1F3A5F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,600;6..72,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pri:#1F3A5F;
+  --pri-deep:#142740;
+  --pri-mid:#2E5585;
+  --pri-soft:#E8EDF3;
+  --gold:#B5612E;
+  --gold-deep:#8F4A20;
+  --gold-text:#8A4A22;
+  --gold-soft:#F6E7DC;
+  --gold-ink:#FFFFFF;
+  --green:#2F8A5F;
+  --green-soft:#E3F1EA;
+  --red:#C24A3B;
+  --red-soft:#FBEAE7;
+  --pc:#2E9C95;
+  --bulbo:#E0A43A;
+  --ischio:#7A68D8;
+  --bg:#F6F5F2;
+  --card:#FFFFFF;
+  --line:#DEDCD6;
+  --line-soft:#E9E7E1;
+  --ink:#13213A;
+  --muted:#52607A;
+  --muted-light:#6E7A90;
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --sans:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --radius:14px;
+  --radius-lg:20px;
+  --maxw:1120px;
+  --maxw-text:680px;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--sans);
+  font-size:17px;line-height:1.65;overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block;}
+a{color:inherit;}
+h1,h2,h3,h4{margin:0;line-height:1.18;letter-spacing:-0.01em;color:var(--pri);}
+h1,h2,h3{font-family:var(--serif);font-weight:700;}
+h1{font-size:clamp(30px,5.8vw,48px);}
+h2{font-size:clamp(25px,4.2vw,36px);}
+h3{font-size:clamp(21px,2.8vw,26px);}
+h4{font-size:17px;font-weight:700;font-family:var(--sans);}
+p{margin:0 0 1rem;}
+p:last-child{margin-bottom:0;}
+strong{font-weight:700;color:var(--pri);}
+
+/* layout */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
+.narrow{max-width:var(--maxw-text);margin-left:auto;margin-right:auto;}
+section{padding:56px 0;}
+@media(min-width:768px){section{padding:76px 0;}}
+.sec-alt{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.sec-deep{background:var(--pri-deep);color:#fff;}
+.sec-deep h2,.sec-deep h3{color:#fff;}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--pri-mid);margin:0 0 10px;}
+.eyebrow-gold{color:var(--gold-text);}
+.lead{font-size:clamp(17px,2vw,19px);color:var(--muted);}
+.sec-deep .lead{color:#C5CEDF;}
+.center{text-align:center;}
+
+/* header */
+.site-head{background:var(--card);border-bottom:1px solid var(--line);padding:14px 0;position:relative;z-index:5;}
+.logo{font-family:var(--sans);font-size:21px;font-weight:800;letter-spacing:-0.02em;color:var(--pri);}
+.logo em{font-style:normal;color:var(--gold-deep);}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--gold);color:var(--gold-ink);text-decoration:none;
+  font-weight:800;font-size:17px;letter-spacing:-0.01em;
+  padding:17px 28px;border-radius:12px;border:none;cursor:pointer;
+  box-shadow:0 2px 0 var(--gold-deep);
+  transition:transform .12s ease,box-shadow .12s ease;
+  text-align:center;width:100%;
+}
+@media(min-width:560px){.btn{width:auto;font-size:18px;padding:18px 34px;}}
+.btn:hover{transform:translateY(-1px);box-shadow:0 3px 0 var(--gold-deep);}
+.btn:active{transform:translateY(1px);box-shadow:0 1px 0 var(--gold-deep);}
+.btn:focus-visible{outline:3px solid var(--pri);outline-offset:3px;}
+.sec-deep .btn:focus-visible{outline-color:#fff;}
+.btn-note{font-size:14.5px;color:var(--muted);margin-top:12px;}
+.sec-deep .btn-note{color:#A9B3C4;}
+.cta-block{margin-top:26px;}
+
+/* hero */
+.hero{background:var(--card);padding:28px 0 44px;border-bottom:1px solid var(--line);}
+.hero-grid{display:block;}
+.hero-img{margin:22px -20px 24px;}
+@media(min-width:900px){
+  .hero{padding:64px 0 72px;}
+  .hero-grid{
+    display:grid;grid-template-columns:1fr 460px;
+    grid-template-areas:"hd img" "rest img";
+    column-gap:56px;align-items:center;
+  }
+  .hero-hd{grid-area:hd;align-self:end;}
+  .hero-rest{grid-area:rest;align-self:start;padding-top:18px;}
+  .hero-img{grid-area:img;margin:0;align-self:center;}
+  .hero-img img{border-radius:var(--radius-lg);}
+}
+.hero-bullets{list-style:none;padding:0;margin:22px 0 0;}
+.hero-bullets li{position:relative;padding-left:30px;margin-bottom:12px;font-size:16.5px;color:var(--ink);}
+.hero-bullets li::before{
+  content:"";position:absolute;left:0;top:9px;width:16px;height:16px;border-radius:50%;
+  background:var(--green-soft);border:2px solid var(--green);
+}
+.hero-facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:20px;font-size:14.5px;color:var(--muted);font-weight:600;}
+.hero-facts span{white-space:nowrap;}
+
+/* cards */
+.grid{display:grid;gap:18px;}
+@media(min-width:760px){.grid-3{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:640px){.grid-2{grid-template-columns:repeat(2,1fr);}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;}
+.sec-alt .card{background:var(--bg);}
+.card-quote{font-family:var(--serif);font-size:21px;font-weight:700;color:var(--pri);margin:0 0 10px;line-height:1.3;}
+.card p{font-size:16px;color:var(--muted);}
+.card h3{margin-bottom:10px;}
+
+/* tiga otot */
+.pilar{border-left:4px solid var(--pri-mid);padding:4px 0 4px 18px;margin-bottom:20px;}
+.pilar.p-a{border-color:var(--red);}
+.pilar.p-b{border-color:var(--green);}
+.pilar.p-c{border-color:var(--gold);}
+.pilar h4{margin-bottom:4px;color:var(--pri);}
+.pilar p{font-size:16px;color:var(--muted);margin:0;}
+.pilar p b{color:var(--pri);}
+.golden{margin-top:28px;font-family:var(--serif);font-size:26px;font-weight:700;color:var(--pri);margin-bottom:4px;line-height:1.25;}
+
+/* steps */
+.step{display:grid;gap:20px;padding:28px 0;border-top:1px solid var(--line);}
+.step:first-of-type,.narrow + .step{border-top:none;}
+@media(min-width:800px){
+  .step{grid-template-columns:1fr 300px;gap:56px;align-items:center;}
+  .step.dimg{grid-template-columns:1fr 1.35fr;gap:48px;}
+  .step-img{order:2;}
+}
+.step-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border-radius:50%;
+  background:var(--pri);color:#fff;font-weight:800;font-size:16px;margin-bottom:12px;
+}
+.step-copy p{color:var(--muted);margin-top:10px;}
+.step-wide{display:block;}
+.step-wide .step-copy{max-width:var(--maxw-text);}
+
+/* screenshot frames */
+.shot{border:1px solid var(--line);border-radius:14px;background:var(--card);box-shadow:0 1px 3px rgba(31,58,95,.07);}
+.shot-r{max-width:300px;width:100%;margin-left:auto;margin-right:auto;}
+@media(min-width:800px){.step .shot-r,.feat .shot-r{max-width:100%;}}
+[data-zoom]{cursor:zoom-in;}
+.m-only{display:inline;}
+@media(min-width:700px){.m-only{display:none;}}
+figure{margin:0;}
+figcaption{font-size:13.5px;color:var(--muted);margin-top:8px;text-align:center;}
+
+/* feature rows */
+.feat{display:grid;gap:24px;padding:40px 0;border-top:1px solid var(--line);}
+@media(min-width:800px){
+  .feat.dimg{grid-template-columns:1fr 1.35fr;gap:48px;align-items:center;}
+  .feat.dimg.flip{grid-template-columns:1.35fr 1fr;}
+  .feat-img{order:2;}
+  .feat.flip .feat-img{order:1;}
+  .feat.flip .feat-copy{order:2;}
+}
+.feat-copy h3{margin-bottom:12px;}
+.feat-copy p{color:var(--muted);font-size:16.5px;}
+.feat-solo{padding:40px 0;border-top:1px solid var(--line);}
+.feat-solo .feat-copy{max-width:var(--maxw-text);}
+.feat-pair{padding-top:40px;border-top:1px solid var(--line);}
+
+/* jelas dari awal */
+.clear-card h3{margin-bottom:10px;}
+.clear-card p{color:var(--muted);font-size:16.5px;}
+.clear-yes{border-top:4px solid var(--green);}
+.clear-no{border-top:4px solid var(--gold-deep);}
+
+/* fit lists */
+.fitlist{list-style:none;padding:0;margin:0;}
+.fitlist li{position:relative;padding-left:30px;margin-bottom:13px;font-size:16.5px;}
+.fitlist li::before{position:absolute;left:0;top:0;font-weight:800;font-size:17px;}
+.fit-yes li::before{content:"✓";color:var(--green);}
+.fit-no li::before{content:"✕";color:var(--red);}
+
+/* table */
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;border:1px solid var(--line);border-radius:var(--radius);}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:15.5px;background:var(--card);}
+th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:none;}
+thead th{font-size:13px;font-weight:700;color:var(--muted);border-bottom:2px solid var(--line);}
+thead th.hl{color:var(--pri);}
+tbody td.hl{font-weight:700;color:var(--pri);background:var(--pri-soft);}
+tbody th{font-weight:600;color:var(--ink);width:20%;}
+
+/* testimoni */
+.testi-grid{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 20px 6px;margin:0 -20px;}
+.testi-grid::-webkit-scrollbar{display:none;}
+.testi-grid img{flex:0 0 78%;scroll-snap-align:center;}
+.testi-dots{display:flex;justify-content:center;gap:8px;margin-top:16px;}
+.testi-dots button{width:8px;height:8px;padding:0;border:none;border-radius:50%;background:var(--line);cursor:pointer;transition:background .2s ease,width .2s ease;}
+.testi-dots button.on{background:var(--pri);width:22px;border-radius:5px;}
+.testi-dots button:focus-visible{outline:2px solid var(--pri);outline-offset:3px;}
+@media(min-width:700px){
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;overflow:visible;padding:0;margin:0;}
+  .testi-grid img{flex:none;}
+  .testi-dots{display:none;}
+}
+.testi-grid img{width:100%;height:auto;border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:0 1px 3px rgba(31,58,95,.07);}
+
+/* price */
+.price-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:26px 22px;max-width:620px;margin:0 auto;}
+@media(min-width:640px){.price-card{padding:36px;}}
+.price-card h3{font-size:clamp(21px,2.6vw,24px);}
+.incl{list-style:none;padding:0;margin:18px 0 0;}
+.incl li{position:relative;padding:10px 0 10px 30px;border-bottom:1px solid var(--line-soft);font-size:16px;}
+.incl li:last-child{border-bottom:none;}
+.incl li::before{content:"✓";position:absolute;left:0;top:10px;font-weight:800;color:var(--green);}
+.price-now{text-align:center;background:var(--gold-soft);border-radius:var(--radius);padding:22px;margin:24px 0 0;}
+.price-now .amt{font-size:clamp(36px,8vw,50px);font-weight:800;color:var(--pri);letter-spacing:-0.04em;line-height:1.1;}
+.price-now .sub{font-size:15px;color:var(--muted);margin-top:4px;}
+
+.contrast{display:grid;gap:12px;margin-top:28px;}
+.contrast .row2{display:grid;gap:10px;}
+@media(min-width:640px){.contrast .row2{grid-template-columns:1fr 1fr;}}
+.cx{border-radius:12px;padding:14px 16px;font-size:15.5px;}
+.cx b{display:block;font-size:12.5px;letter-spacing:.04em;margin-bottom:4px;}
+.cx-no{background:var(--red-soft);color:#5E2A22;}
+.cx-no b{color:var(--red);}
+.cx-yes{background:var(--green-soft);color:#1E4A35;}
+.cx-yes b{color:var(--green);}
+.mini-shots{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:460px;margin:0 auto;}
+
+/* faq */
+.faq-key{background:var(--bg);border:3px solid var(--gold);border-radius:var(--radius);padding:22px;margin-bottom:16px;}
+.faq-key h3{font-size:clamp(20px,3.2vw,24px);margin-bottom:12px;}
+.faq-key p{font-size:17.5px;color:var(--muted);margin:0 0 10px;}
+.faq-key ol{margin:0;padding:0 0 0 24px;font-size:clamp(17.5px,2.6vw,19px);line-height:1.5;}
+.faq-key li{margin-bottom:10px;padding-left:4px;}
+.faq-key li:last-child{margin-bottom:0;}
+.faq-key li::marker{font-weight:800;color:var(--gold-deep);}
+.faq-key b{color:var(--pri);}
+.faq{border-top:1px solid var(--line);margin-top:30px;}
+.faq details{border-bottom:1px solid var(--line);}
+.faq summary{cursor:pointer;padding:18px 34px 18px 0;position:relative;font-weight:700;font-size:16.5px;color:var(--pri);list-style:none;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{
+  content:"";position:absolute;right:6px;top:26px;width:9px;height:9px;
+  border-right:2.5px solid var(--pri-mid);border-bottom:2.5px solid var(--pri-mid);
+  transform:rotate(45deg);transition:transform .18s ease;
+}
+.faq details[open] summary::after{transform:rotate(-135deg);top:28px;}
+.faq summary:focus-visible{outline:2px solid var(--pri);outline-offset:2px;}
+.faq .ans{padding:0 0 20px;color:var(--muted);font-size:16.5px;}
+
+/* closing */
+.closing-line{font-family:var(--serif);font-size:25px;font-weight:700;color:#fff;margin-top:24px;line-height:1.3;}
+
+/* sticky bar */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:20;
+  background:var(--card);border-top:1px solid var(--line);padding:10px 16px;
+  box-shadow:0 -3px 14px rgba(31,58,95,.12);
+  display:flex;align-items:center;gap:12px;
+  transform:translateY(110%);transition:transform .25s ease;
+}
+.sticky-cta.on{transform:translateY(0);}
+.sticky-cta .sp{flex:1;min-width:0;}
+.sticky-cta .sp b{display:block;font-size:17px;color:var(--pri);line-height:1.2;}
+.sticky-cta .sp small{font-size:12.5px;color:var(--muted);}
+.sticky-cta .btn{width:auto;padding:14px 20px;font-size:15.5px;flex-shrink:0;}
+@media(min-width:900px){.sticky-cta{display:none;}}
+body.has-sticky{padding-bottom:82px;}
+@media(min-width:900px){body.has-sticky{padding-bottom:0;}}
+
+/* footer */
+.site-foot{background:var(--card);border-top:1px solid var(--line);padding:30px 0;text-align:center;}
+.site-foot .logo{display:block;margin-bottom:6px;}
+.site-foot small{font-size:13.5px;color:var(--muted-light);}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(8,14,28,.92);display:none;align-items:center;justify-content:center;padding:56px 12px 20px;}
+.lb.on{display:flex;}
+.lb-inner{max-width:1100px;width:100%;max-height:100%;overflow:auto;-webkit-overflow-scrolling:touch;border-radius:10px;}
+.lb img{width:auto;max-width:100%;max-height:84vh;margin:0 auto;border-radius:10px;}
+.lb-close{
+  position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;
+  background:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
+}
+.lb-close:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+.lb-close svg{width:18px;height:18px;}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <div class="logo">Master <em>Gesture</em></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-hd">
+        <p class="eyebrow eyebrow-gold">Untuk karyawan yang ingin lebih didengar di kantor</p>
+        <h1>Bukan kurang pintar. Gesturmu yang bikin diremehkan. Latih gestur berwibawa 3 menit sehari selama 30 hari.</h1>
+      </div>
+      <div class="hero-img">
+        <img src="img/hero-mockup.webp" alt="Master Gesture, web app latihan gestur berwibawa 30 hari dengan Cermin Pintar, program 30 hari terpandu, dan simulator meeting" width="980" height="1232" fetchpriority="high">
+      </div>
+      <div class="hero-rest">
+        <p class="lead">Atasan dan rekan kerja menilai kamu dari cara duduk, cara menoleh, dan cara tanganmu bergerak, sebelum mereka selesai mendengar isi omonganmu. Master Gesture adalah web app yang melatih gestur itu satu per satu. Tiap hari ada drill 3 menit, satu misi untuk dicoba di kantor, dan catatan reaksi orang yang kamu lihat sendiri.</p>
+        <ul class="hero-bullets">
+          <li>Gak tahu gesturmu salah di mana? Audit awal dan Cermin Pintar menunjukkannya lewat kamera laptop atau HP.</li>
+          <li>Gak tahu harus latihan apa hari ini? Buka Hari Ini, ikuti drill 3 menit, lalu jalankan misinya di kantor.</li>
+          <li>Besok harus ketemu atasan atau interview? Buka Situasi, pilih momennya, latih dulu di Simulator.</li>
+        </ul>
+        <div class="cta-block">
+          <a class="btn" href="checkout.html">Ambil Akses Master Gesture → Rp127.000</a>
+          <p class="btn-note">Dibuka dari browser HP atau laptop. Tanpa install, tanpa akun.</p>
+        </div>
+        <div class="hero-facts">
+          <span>3 menit per drill</span>
+          <span>Program 30 hari</span>
+          <span>Sekali bayar</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADEGAN MASALAH -->
+<section>
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:34px;">
+      <h2>Baca tiga ini. Kalau ada satu yang kejadian bulan ini, kamu di tempat yang benar.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <p class="card-quote">“Iya, tadi idenya bagus.”</p>
+        <p>Atasanmu bilang begitu ke rekan sebelahmu. Padahal ide itu kamu yang lempar duluan, lima menit sebelumnya. Bedanya, dia bilang sambil duduk tegak dan menatap semua orang. Kamu bilang sambil menunduk ke laptop.</p>
+      </div>
+      <div class="card">
+        <p class="card-quote">“Ke ruangan saya sebentar, ya.”</p>
+        <p>Pesan itu masuk dan jantungmu langsung turun. Di depan meja atasan, tanganmu bingung harus di mana, suaramu mengecil, dan jawaban yang sudah kamu siapkan keluar berantakan. Isinya benar, tapi kedengarannya ragu.</p>
+      </div>
+      <div class="card">
+        <p class="card-quote">“Nanti kami kabari.”</p>
+        <p>Interview kerja, atau obrolan soal kenaikan gaji. Kamu sudah siapkan semuanya. Pulangnya kamu bertanya-tanya kenapa ujungnya selalu kalimat yang sama, dan kenapa orang yang jawabannya biasa saja malah lolos.</p>
+      </div>
+    </div>
+    <p class="narrow lead center" style="margin-top:30px;">Tiga adegan ini kelihatan beda. Akarnya sama, dan bukan karena kamu kurang pintar atau kurang kerja keras.</p>
+  </div>
+</section>
+
+<!-- REFRAME -->
+<section class="sec-alt">
+  <div class="wrap">
+    <div class="narrow">
+      <h2>Orang menilai gesturmu dulu, baru omonganmu.</h2>
+      <p style="margin-top:18px;">Badan yang tidak ikut menghadap saat namamu dipanggil terbaca cuek. Tangan yang terkunci di depan dada terbaca menutup diri. Pandangan yang lari ke layar terbaca tidak yakin. Semua itu terjadi dalam hitungan detik, dan orang jarang sadar kenapa mereka menilai begitu.</p>
+      <p>Kabar baiknya, gestur itu kebiasaan. Kebiasaan bisa dilatih, satu gerakan kecil per hari, sampai jadi otomatis.</p>
+
+      <div class="contrast">
+        <div class="row2">
+          <div class="cx cx-no"><b>YANG BIASA TERJADI</b>Namamu dipanggil, kamu menoleh pakai kepala saja, mata masih di layar.</div>
+          <div class="cx cx-yes"><b>YANG DILATIH</b>Lepas tangan dari keyboard, putar badan penuh, tatap orangnya, baru jawab.</div>
+        </div>
+        <div class="row2">
+          <div class="cx cx-no"><b>YANG BIASA TERJADI</b>Ditanya mendadak di meeting, langsung jawab sambil "eee, jadi gini..."</div>
+          <div class="cx cx-yes"><b>YANG DILATIH</b>Jeda satu napas, tangan terbuka di atas meja, kalimat pertama langsung ke intinya.</div>
+        </div>
+      </div>
+
+      <p class="golden">Satu gestur sehari. Dicoba langsung di kantor.</p>
+      <p style="color:var(--muted);">Bukan teori bahasa tubuh yang dibaca lalu dilupakan. Tiap hari kamu latih satu gestur, pakai di dunia nyata, lalu catat reaksi orang di sekitarmu.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CARA KERJA -->
+<section>
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:10px;">
+      <h2>Kamu gak perlu tahu harus mulai dari mana. App-nya yang nuntun.</h2>
+    </div>
+
+    <div class="step dimg">
+      <div class="step-copy">
+        <div class="step-num">1</div>
+        <h3>Jawab audit gestur singkat</h3>
+        <p>Pertanyaan pendek tentang kebiasaanmu saat dipanggil, saat meeting, dan saat bicara dengan atasan. Hasilnya menunjukkan gestur mana yang paling perlu dibenahi duluan.</p>
+      </div>
+      <div class="step-img">
+        <picture><source media="(min-width:800px)" srcset="img/audit-d.webp" width="1400" height="868"><img class="shot shot-r" data-zoom src="img/audit.webp" alt="Layar hasil audit gestur Master Gesture" width="728" height="1568" loading="lazy"></picture>
+      </div>
+    </div>
+
+    <div class="step step-wide">
+      <div class="step-copy">
+        <div class="step-num">2</div>
+        <h3>Rekam sesi standar 60 detik di Hari 0</h3>
+        <p>Satu rekaman pendek sebagai titik awal, diulang di Hari 15 dan Hari 30. Kamu dapat skor gestur dari sesi yang sama, jadi kemajuannya bisa dibandingkan dengan jujur. Belum siap merekam? Bisa ditunda, app mengingatkan.</p>
+      </div>
+    </div>
+
+    <div class="step dimg">
+      <div class="step-copy">
+        <div class="step-num">3</div>
+        <h3>Buka Hari Ini, tiap hari</h3>
+        <p>Drill 3 menit dengan langkah yang jelas, satu misi lapangan untuk dicoba di kantor, dan ceklis malam untuk mencatat apakah misinya jalan dan reaksi apa yang kamu lihat.</p>
+      </div>
+      <div class="step-img">
+        <picture><source media="(min-width:800px)" srcset="img/hari-ini-d.webp" width="1400" height="868"><img class="shot shot-r" data-zoom src="img/hari-ini.webp" alt="Layar Hari Ini: drill 3 menit, misi lapangan, dan ceklis malam" width="728" height="1568" loading="lazy"></picture>
+      </div>
+    </div>
+
+    <div class="center cta-block">
+      <a class="btn" href="checkout.html">Ambil Akses Master Gesture → Rp127.000</a>
+    </div>
+  </div>
+</section>
+
+<!-- FITUR HARIAN -->
+<section class="sec-alt">
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:10px;">
+      <p class="eyebrow">YANG KAMU PAKAI TIAP HARI</p>
+      <h2>Latihan kecil, dipakai di tempat yang sebenarnya.</h2>
+    </div>
+
+    <div class="feat-solo">
+      <div class="feat-copy">
+        <h3>Cermin Pintar</h3>
+        <p>Nyalakan kamera laptop atau HP, lalu latih gestur sambil dilihat. App memberi tanda saat tanganmu terkunci, saat badanmu tidak terlihat penuh, dan saat gesturmu sudah pas. Kamu gak perlu menebak sendiri di depan cermin.</p>
+      </div>
+    </div>
+
+    <div class="feat-solo">
+      <div class="feat-copy">
+        <h3>Ritual 60 Detik</h3>
+        <p>Sebelum masuk ruang meeting atau ruangan atasan, buka satu panduan singkat. Postur, napas, dan kalimat pembuka, beres dalam semenit di depan pintu.</p>
+      </div>
+    </div>
+
+    <div class="feat-solo">
+      <div class="feat-copy">
+        <h3>Rekam dan hitung kata pengisi</h3>
+        <p>Rekam dirimu bicara, lalu lihat rapornya, termasuk berapa kali "eee", "jadi", dan "anu" keluar. Kebiasaan yang selama ini gak kamu sadari jadi kelihatan angkanya.</p>
+      </div>
+    </div>
+
+    <div class="feat-solo">
+      <div class="feat-copy">
+        <h3>Perpustakaan Gestur</h3>
+        <p>Semua gestur yang dilatih, lengkap dengan contoh salah dan benar, kapan dipakai, dan kesalahan yang paling sering terjadi. Tinggal dibuka saat butuh mengingat lagi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SITUASI -->
+<section>
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:10px;">
+      <p class="eyebrow">UNTUK MOMEN YANG MENENTUKAN</p>
+      <h2>Ada momen yang gak bisa diulang. Latih dulu sebelum terjadi.</h2>
+    </div>
+
+    <div class="feat dimg">
+      <div class="feat-copy">
+        <h3>Playbook Situasi</h3>
+        <p>Panduan siap pakai untuk momen yang paling bikin deg-degan: dipanggil atasan, ditanya mendadak di meeting, minta promosi atau kenaikan gaji, dan interview kerja. Isinya apa yang dilakukan badanmu dari masuk sampai keluar ruangan.</p>
+        <p>Punya momen penting minggu ini? Isi tanggal dan konteksnya, halaman Hari Ini ikut menyesuaikan latihannya.</p>
+      </div>
+      <div class="feat-img">
+        <picture><source media="(min-width:800px)" srcset="img/situasi-d.webp" width="1400" height="868"><img class="shot shot-r" data-zoom src="img/situasi.webp" alt="Playbook Dipanggil Atasan di Master Gesture" width="728" height="1568" loading="lazy"></picture>
+      </div>
+    </div>
+
+    <div class="feat-pair">
+      <div class="narrow" style="margin-bottom:24px;">
+        <h3>Simulator Meeting dan Perakit Jawaban 4P</h3>
+        <p style="color:var(--muted);margin-top:12px;">Simulator memberi pertanyaan mendadak seperti di meeting sungguhan, dan kamu menjawab sambil merekam. Untuk presentasi atau jawaban penting, Perakit 4P menyusun skrip singkat yang runtut, lalu Gladi menampilkannya sebagai teleprompter supaya kamu bisa berlatih sampai lancar.</p>
+      </div>
+      <div class="mini-shots">
+        <img class="shot" data-zoom src="img/simulator.webp" alt="Simulator: pertanyaan meeting yang sedang dijawab" width="728" height="1568" loading="lazy">
+        <img class="shot" data-zoom src="img/perakit.webp" alt="Perakit 4P: skrip jawaban yang sudah tersusun" width="728" height="1568" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRES -->
+<section class="sec-alt">
+  <div class="wrap">
+    <div class="feat dimg flip" style="border-top:none;padding-top:0;">
+      <div class="feat-copy">
+        <p class="eyebrow">BUKTINYA DARI DIRIMU SENDIRI</p>
+        <h3>Lihat sendiri apa yang berubah dalam 30 hari.</h3>
+        <p>Peta 30 hari, streak, skor gestur dari tiap latihan, dan skor sesi standar Hari 0, Hari 15, Hari 30 yang bisa dibandingkan langsung. Ada juga catatan reaksi orang yang kamu tulis tiap malam, seperti "ada yang bilang aku kelihatan lebih yakin".</p>
+        <p>Selesai 30 hari, kamu dapat Rapor Transformasi dan Level 2: Wibawa Pemimpin terbuka.</p>
+      </div>
+      <div class="feat-img">
+        <picture><source media="(min-width:800px)" srcset="img/progres-d.webp" width="1400" height="868"><img class="shot shot-r" data-zoom src="img/progres.webp" alt="Halaman Progres: peta 30 hari, skor gestur, dan sesi standar Hari 0, 15, 30" width="728" height="1568" loading="lazy"></picture>
+      </div>
+    </div>
+
+    <div class="feat-solo">
+      <div class="feat-copy">
+        <h3>Rekamanmu gak ke mana-mana.</h3>
+        <p>Gak ada akun dan password. Rekaman video, catatan, dan progresmu tersimpan di perangkat yang kamu pakai, tidak diunggah ke server. Pindah ke laptop atau HP lain? Pakai fitur Pindahkan Progres, cukup salin satu kode teks. Rekaman videonya tetap di perangkat lama.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JELAS DARI AWAL -->
+<section>
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:30px;">
+      <h2>Supaya jelas dari awal</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="card clear-card clear-yes">
+        <h3>Master Gesture bisa</h3>
+        <p>menunjukkan gestur mana yang perlu dibenahi, memandu latihan 3 menit tiap hari selama 30 hari, memberi tanda lewat kamera saat gesturmu keliru, membantumu bersiap untuk momen penting, dan mencatat kemajuanmu.</p>
+      </div>
+      <div class="card clear-card clear-no">
+        <h3>Master Gesture bukan</h3>
+        <p>kelas video, coach pribadi, atau chatbot AI yang bisa ditanya. Tidak ada orang yang menilai rekamanmu, semua penilaian dari app dan dirimu sendiri. App ini juga tidak menjanjikan promosi atau kenaikan gaji. Yang dilatih adalah cara kamu tampil, keputusan tetap di tangan orang lain.</p>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top:18px;">
+      <div class="card">
+        <h4 style="margin-bottom:14px;">Cocok kalau</h4>
+        <ul class="fitlist fit-yes">
+          <li>Kamu sering merasa kerjamu bagus tapi kurang dianggap.</li>
+          <li>Kamu gugup tiap dipanggil atasan atau ditanya di meeting.</li>
+          <li>Kamu sedang menyiapkan interview, presentasi, atau obrolan soal promosi.</li>
+          <li>Kamu mau latihan singkat yang bisa dilakukan sendiri di rumah atau di meja kerja.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4 style="margin-bottom:14px;">Bukan untuk kamu kalau</h4>
+        <ul class="fitlist fit-no">
+          <li>Kamu cari hasil instan dalam semalam. Ini latihan kebiasaan, butuh diulang.</li>
+          <li>Kamu cari kelas video panjang atau mentor yang mengoreksi langsung.</li>
+          <li>Kamu gak mau sama sekali menyalakan kamera untuk latihan.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TABEL -->
+<section class="sec-alt">
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:30px;">
+      <h2>Kenapa app, bukan cara yang sekarang.</h2>
+    </div>
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th></th><th>Buku body language</th><th>Video YouTube</th><th>Kelas public speaking</th><th class="hl">Master Gesture</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Yang dikerjakan</th><td>Baca, lalu coba ingat</td><td>Nonton, lalu lupa</td><td>Latihan di jadwal kelas</td><td class="hl">Drill 3 menit + misi di kantor tiap hari</td></tr>
+          <tr><th>Tahu salahnya di mana</th><td>Tidak</td><td>Tidak</td><td>Saat kelas saja</td><td class="hl">Audit dan Cermin Pintar</td></tr>
+          <tr><th>Persiapan momen penting</th><td>Teori umum</td><td>Tergantung video</td><td>Kalau pas ada sesinya</td><td class="hl">Playbook situasi dan Simulator</td></tr>
+          <tr><th>Memantau kemajuan</th><td>Tidak ada</td><td>Tidak ada</td><td>Penilaian pengajar</td><td class="hl">Skor Hari 0, 15, 30 dan catatan reaksi</td></tr>
+          <tr><th>Biaya</th><td>Beli buku</td><td>Gratis</td><td>Umumnya jutaan rupiah</td><td class="hl">Rp127.000 sekali bayar</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section>
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:28px;">
+      <h2>Cerita dari yang sudah pakai.</h2>
+      <p class="lead" style="margin-top:12px;"><span class="m-only">Geser untuk melihat cerita lainnya. </span>Nomor disensor untuk menjaga privasi.</p>
+    </div>
+    <div class="testi-grid">
+      <img src="img/testi1.webp" alt="Screenshot WhatsApp: cerita pengguna Master Gesture" width="392" height="784" loading="lazy">
+      <img src="img/testi2.webp" alt="Screenshot WhatsApp: cerita pengguna Master Gesture" width="392" height="784" loading="lazy">
+      <img src="img/testi3.webp" alt="Screenshot WhatsApp: cerita pengguna Master Gesture" width="392" height="784" loading="lazy">
+    </div>
+    <div class="testi-dots" id="testiDots" aria-hidden="true">
+      <button type="button" data-i="0" tabindex="-1"></button>
+      <button type="button" data-i="1" tabindex="-1"></button>
+      <button type="button" data-i="2" tabindex="-1"></button>
+    </div>
+  </div>
+</section>
+
+<!-- HARGA -->
+<section class="sec-alt">
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:30px;">
+      <h2>Lebih murah dari satu kali makan siang bareng tim.</h2>
+      <p class="lead" style="margin-top:14px;">Kelas public speaking umumnya dibayar jutaan untuk beberapa pertemuan. Master Gesture dipakai tiap hari selama 30 hari, dan tetap bisa dibuka setelahnya untuk persiapan momen penting berikutnya.</p>
+    </div>
+    <div class="price-card">
+      <h3>Yang kamu dapat begitu masuk</h3>
+      <ul class="incl">
+        <li>Audit gestur dan sesi standar 60 detik Hari 0, 15, 30</li>
+        <li>Program 30 hari: drill 3 menit, misi lapangan, dan ceklis malam</li>
+        <li>Cermin Pintar dengan kamera laptop atau HP</li>
+        <li>Rekam latihan dengan rapor dan hitungan kata pengisi</li>
+        <li>Playbook 4 situasi penting dan Ritual 60 Detik</li>
+        <li>Simulator Meeting, Perakit Jawaban 4P, dan Gladi teleprompter</li>
+        <li>Perpustakaan Gestur lengkap dengan contoh salah dan benar</li>
+        <li>Progres, Rapor Transformasi, dan Level 2: Wibawa Pemimpin</li>
+      </ul>
+      <div class="price-now">
+        <div class="sub">Harga hari ini</div>
+        <div class="amt">Rp127.000</div>
+        <div class="sub">Sekitar Rp4.200 per hari selama 30 hari. Sekali bayar, tanpa biaya bulanan.</div>
+      </div>
+      <div class="center cta-block">
+        <a class="btn" href="checkout.html">Ambil Akses Master Gesture → Rp127.000</a>
+        <p class="btn-note">Panduan Akses berisi kode masuk dikirim ke email yang kamu pakai saat order.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AKSES + FAQ -->
+<section>
+  <div class="wrap">
+    <div class="narrow">
+      <div class="faq-key">
+        <h3>Setelah bayar, kodenya ada di email. Bukan di tombol "Unduh Produk".</h3>
+        <ol>
+          <li>Buka email pembelianmu. Kalau belum ada, cek folder <b>Spam</b> atau <b>Promosi</b>.</li>
+          <li>Klik <b>link biru yang diawali drive.google.com</b>. Jangan klik tombol biru "Unduh Produk".</li>
+          <li>PDF Panduan Akses terbuka. Kode masuk dan link aplikasinya ada di dalamnya.</li>
+        </ol>
+      </div>
+
+      <h2 style="margin-top:44px;">Pertanyaan yang sering masuk</h2>
+      <div class="faq">
+        <details>
+          <summary>Aku sudah bayar. Kodenya di mana?</summary>
+          <div class="ans">Buka email pembelianmu, lalu klik <b>link biru yang diawali drive.google.com</b>. PDF Panduan Akses terbuka, dan kodenya ada di dalamnya.</div>
+        </details>
+        <details>
+          <summary>Aku sudah klik "Unduh Produk", tapi gak ada kodenya.</summary>
+          <div class="ans">Tenang, kamu cuma salah klik. Balik ke email yang sama, cari <b>link biru yang diawali drive.google.com</b>. Letaknya di atas tombol Unduh Produk. Klik link itu, bukan tombolnya, dan kodenya ada di PDF yang terbuka.</div>
+        </details>
+        <details>
+          <summary>Kodenya ditolak.</summary>
+          <div class="ans">Pastikan kamu membuka mastergesture.netlify.app, lalu ketik atau salin kode dari Panduan Akses apa adanya. Huruf besar kecil dan spasi yang ikut tersalin gak masalah.</div>
+        </details>
+        <details>
+          <summary>Ini app yang harus di-install?</summary>
+          <div class="ans">Tidak. Master Gesture dibuka lewat browser di HP atau laptop. Tampilannya menyesuaikan, di laptop terasa seperti aplikasi desktop. Supaya cepat dibuka, simpan ke layar utama HP seperti app biasa.</div>
+        </details>
+        <details>
+          <summary>Perlu bikin akun atau password?</summary>
+          <div class="ans">Tidak. Cukup satu kode akses.</div>
+        </details>
+        <details>
+          <summary>Rekaman kameraku dikirim ke mana?</summary>
+          <div class="ans">Tidak ke mana-mana. Rekaman dan semua catatanmu tersimpan di perangkat yang kamu pakai, bukan di server.</div>
+        </details>
+        <details>
+          <summary>Kalau ganti HP atau laptop, progresnya ikut?</summary>
+          <div class="ans">Bisa, lewat fitur Pindahkan Progres. Salin kode teksnya di perangkat lama, tempel di perangkat baru. Rekaman video Hari 0 dan Hari 30 tidak ikut pindah dan tetap tersimpan di perangkat lama.</div>
+        </details>
+        <details>
+          <summary>Butuh waktu berapa lama sehari?</summary>
+          <div class="ans">Drill sekitar 3 menit, ditambah satu misi yang kamu jalankan sambil bekerja seperti biasa, dan ceklis malam kurang dari satu menit.</div>
+        </details>
+        <details>
+          <summary>Aku belum siap merekam diri sendiri.</summary>
+          <div class="ans">Rekaman Hari 0 boleh ditunda. Kamu tetap bisa mulai program harian, dan app akan mengingatkan untuk merekam nanti.</div>
+        </details>
+        <details>
+          <summary>Kalau ada hari yang bolong?</summary>
+          <div class="ans">Gak apa-apa. App melanjutkan dari hari terakhir yang belum selesai, tanpa harus mengulang dari awal.</div>
+        </details>
+        <details>
+          <summary>Ada biaya bulanan?</summary>
+          <div class="ans">Tidak ada. Sekali bayar.</div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="sec-deep">
+  <div class="wrap">
+    <div class="narrow center">
+      <h2>Besok, waktu namamu dipanggil, putar badanmu.</h2>
+      <p class="lead" style="margin-top:20px;">Kamu sudah coba kerja lebih keras, lembur lebih lama, dan berharap suatu hari ada yang sadar. Satu hal yang belum pernah kamu latih: cara orang melihatmu, sebelum kamu sempat bicara.</p>
+      <p class="closing-line">Hari pertamamu cuma 3 menit.</p>
+      <div class="cta-block">
+        <a class="btn" href="checkout.html">Ambil Akses Master Gesture → Rp127.000</a>
+        <p class="btn-note">Dibuka dari browser HP atau laptop. Tanpa install, tanpa akun.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span class="logo">Master <em>Gesture</em></span>
+    <small>© 2026 Master Gesture. Semua hak dilindungi.</small>
+  </div>
+</footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <div class="sp">
+    <b>Rp127.000</b>
+    <small>Buka dari HP atau laptop, tanpa install</small>
+  </div>
+  <a class="btn" href="checkout.html">Ambil Akses</a>
+</div>
+
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Tampilan app diperbesar">
+  <button type="button" class="lb-close" id="lbClose" aria-label="Tutup gambar">
+    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" stroke="#13213A" stroke-width="1.8" stroke-linecap="round"/></svg>
+  </button>
+  <div class="lb-inner"><img id="lbImg" src="" alt=""></div>
+</div>
+
+<script>
+(function(){
+  var bar=document.getElementById('stickyCta');
+  var hero=document.querySelector('.hero');
+  if(!bar||!hero)return;
+  document.body.classList.add('has-sticky');
+  function check(){bar.classList.toggle('on',hero.getBoundingClientRect().bottom<0);}
+  check();
+  window.addEventListener('scroll',check,{passive:true});
+  window.addEventListener('resize',check);
+})();
+(function(){
+  var track=document.querySelector('.testi-grid');
+  var dots=document.getElementById('testiDots');
+  if(!track||!dots)return;
+  var slides=track.querySelectorAll('img');
+  var btns=dots.querySelectorAll('button');
+  function active(){
+    var mid=track.scrollLeft+track.clientWidth/2,best=0,min=Infinity;
+    for(var i=0;i<slides.length;i++){
+      var c=slides[i].offsetLeft+slides[i].offsetWidth/2,d=Math.abs(c-mid);
+      if(d<min){min=d;best=i;}
+    }
+    for(var j=0;j<btns.length;j++)btns[j].classList.toggle('on',j===best);
+  }
+  var t;
+  track.addEventListener('scroll',function(){clearTimeout(t);t=setTimeout(active,60);},{passive:true});
+  for(var k=0;k<btns.length;k++){
+    btns[k].addEventListener('click',function(){
+      var el=slides[Number(this.getAttribute('data-i'))];
+      if(!el)return;
+      track.scrollTo({left:el.offsetLeft-(track.clientWidth-el.offsetWidth)/2,behavior:'smooth'});
+    });
+  }
+  active();
+})();
+(function(){
+  var lb=document.getElementById('lightbox'),img=document.getElementById('lbImg'),close=document.getElementById('lbClose');
+  var last=null;
+  function open(src,alt){
+    img.src=src;img.alt=alt||'';
+    lb.classList.add('on');document.body.style.overflow='hidden';close.focus();
+  }
+  function shut(){lb.classList.remove('on');img.src='';document.body.style.overflow='';if(last)last.focus();}
+  var zs=document.querySelectorAll('[data-zoom]');
+  for(var i=0;i<zs.length;i++){
+    zs[i].setAttribute('tabindex','0');
+    zs[i].setAttribute('role','button');
+    zs[i].addEventListener('click',function(){last=this;open(this.currentSrc||this.src,this.alt);});
+    zs[i].addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();this.click();}});
+  }
+  close.addEventListener('click',shut);
+  lb.addEventListener('click',function(e){if(e.target===lb)shut();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('on'))shut();});
+})();
+</script>
+</body>
+</html>
