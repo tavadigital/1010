@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Child Brain Activation | Latihan Fokus Anak 7 Menit Sehari</title>
+<meta name="description" content="App permainan latihan fokus 7 menit sehari selama 28 hari untuk anak 3 sampai 10 tahun. Melatih 4 otot fokus, lalu dijembatani ke PR lewat PR Mode. Tanpa install, tanpa akun.">
+<meta property="og:title" content="Child Brain Activation | Latihan Fokus Anak 7 Menit Sehari">
+<meta property="og:description" content="App permainan latihan fokus 7 menit sehari selama 28 hari untuk anak 3 sampai 10 tahun. Melatih 4 otot fokus, lalu dijembatani ke PR lewat PR Mode.">
+<meta name="theme-color" content="#22223B">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%2322223B%22/%3E%3Crect x=%228%22 y=%228%22 width=%2222%22 height=%2222%22 rx=%226%22 fill=%22%236C5CE7%22/%3E%3Crect x=%2234%22 y=%228%22 width=%2222%22 height=%2222%22 rx=%226%22 fill=%22%2322B8CF%22/%3E%3Crect x=%228%22 y=%2234%22 width=%2222%22 height=%2222%22 rx=%226%22 fill=%22%23FDCB3E%22/%3E%3Ccircle cx=%2245%22 cy=%2245%22 r=%2211%22 fill=%22%23FF6B6B%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --tinta:#22223B;
+  --tinta-2:#4A4A68;
+  --tinta-3:#77778F;
+  --krem:#FAF7F2;
+  --kartu:#FFFFFF;
+  --garis:#E8E2D8;
+  --garis-soft:#F0ECE4;
+  --ungu:#6C5CE7;
+  --ungu-tua:#5546C9;
+  --ungu-lembut:#EEEBFD;
+  --aqua:#22B8CF;
+  --aqua-lembut:#E2F5F8;
+  --kuning:#FDCB3E;
+  --kuning-lembut:#FFF5D8;
+  --koral:#FF6B6B;
+  --koral-lembut:#FFE9E7;
+  --koral-teks:#C2413F;
+  --font:'Nunito',ui-rounded,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --radius:16px;
+  --radius-lg:22px;
+  --maxw:1120px;
+  --maxw-text:680px;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--krem);color:var(--tinta);font-family:var(--font);font-size:17px;font-weight:600;line-height:1.65;overflow-x:hidden;}
+img{max-width:100%;height:auto;display:block;}
+a{color:inherit;}
+h1,h2,h3,h4{margin:0;line-height:1.18;letter-spacing:-0.015em;color:var(--tinta);font-weight:900;}
+h1{font-size:clamp(31px,5.8vw,50px);}
+h2{font-size:clamp(26px,4.2vw,38px);}
+h3{font-size:clamp(21px,2.8vw,26px);font-weight:800;}
+h4{font-size:18px;font-weight:800;}
+p{margin:0 0 1rem;}
+p:last-child{margin-bottom:0;}
+strong,b{font-weight:800;color:var(--tinta);}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
+.narrow{max-width:var(--maxw-text);margin-left:auto;margin-right:auto;}
+section{padding:56px 0;}
+@media(min-width:768px){section{padding:78px 0;}}
+.sec-alt{background:var(--kartu);border-top:1px solid var(--garis);border-bottom:1px solid var(--garis);}
+.sec-deep{background:var(--tinta);color:#fff;}
+.sec-deep h2,.sec-deep h3{color:#fff;}
+.eyebrow{font-size:14px;font-weight:800;color:var(--ungu-tua);margin:0 0 8px;}
+.lead{font-size:clamp(17px,2vw,19px);color:var(--tinta-2);}
+.sec-deep .lead{color:#CFCFE0;}
+.center{text-align:center;}
+
+/* header */
+.site-head{background:var(--kartu);border-bottom:1px solid var(--garis);padding:14px 0;}
+.logo{font-size:21px;font-weight:900;letter-spacing:-0.02em;color:var(--tinta);line-height:1.1;}
+.logo em{font-style:normal;color:var(--ungu);}
+
+/* tombol */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--ungu);color:#fff;text-decoration:none;
+  font-family:var(--font);font-weight:900;font-size:17px;letter-spacing:-0.005em;
+  padding:17px 28px;border-radius:16px;border:none;cursor:pointer;
+  box-shadow:0 4px 0 var(--ungu-tua);
+  transition:transform .12s ease,box-shadow .12s ease;
+  text-align:center;width:100%;
+}
+@media(min-width:560px){.btn{width:auto;font-size:18px;padding:18px 34px;}}
+.btn:hover{transform:translateY(-1px);box-shadow:0 5px 0 var(--ungu-tua);}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ungu-tua);}
+.btn:focus-visible{outline:3px solid var(--tinta);outline-offset:4px;}
+.sec-deep .btn:focus-visible{outline-color:#fff;}
+.btn-note{font-size:14.5px;color:var(--tinta-2);margin-top:12px;}
+.sec-deep .btn-note{color:#B8B8CC;}
+.cta-block{margin-top:26px;}
+
+/* hero */
+.hero{background:var(--kartu);padding:28px 0 46px;border-bottom:1px solid var(--garis);}
+.hero-grid{display:block;}
+.hero-img{margin:22px -20px 24px;}
+@media(min-width:900px){
+  .hero{padding:64px 0 74px;}
+  .hero-grid{display:grid;grid-template-columns:1fr 450px;grid-template-areas:"hd img" "rest img";column-gap:56px;align-items:center;}
+  .hero-hd{grid-area:hd;align-self:end;}
+  .hero-rest{grid-area:rest;align-self:start;padding-top:18px;}
+  .hero-img{grid-area:img;margin:0;}
+  .hero-img img{border-radius:var(--radius-lg);}
+}
+.hero-for{display:inline-block;font-size:14.5px;font-weight:800;color:var(--ungu-tua);background:var(--ungu-lembut);border-radius:999px;padding:5px 14px;margin-bottom:16px;}
+.hero-bullets{list-style:none;padding:0;margin:22px 0 0;}
+.hero-bullets li{position:relative;padding-left:32px;margin-bottom:13px;font-size:16.5px;}
+.hero-bullets li::before{content:"";position:absolute;left:0;top:6px;width:18px;height:18px;border-radius:6px;background:var(--ungu);}
+.hero-bullets li:nth-child(2)::before{background:var(--aqua);}
+.hero-bullets li:nth-child(3)::before{background:var(--kuning);}
+.hero-bullets b{color:var(--tinta);}
+.hero-price{display:flex;align-items:baseline;gap:12px;margin-top:26px;}
+.hero-price s{font-size:19px;color:var(--tinta-3);font-weight:800;}
+.hero-price b{font-size:38px;font-weight:900;color:var(--tinta);line-height:1;letter-spacing:-0.02em;}
+.hero-price + .cta-block{margin-top:14px;}
+.hero-facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:20px;font-size:14.5px;color:var(--tinta-2);font-weight:800;}
+.hero-facts span{white-space:nowrap;}
+
+/* kartu umum */
+.grid{display:grid;gap:18px;}
+@media(min-width:760px){.grid-3{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:640px){.grid-2{grid-template-columns:repeat(2,1fr);}}
+.card{background:var(--kartu);border:1px solid var(--garis);border-radius:var(--radius-lg);padding:24px;}
+.sec-alt .card{background:var(--krem);}
+.card-quote{font-size:22px;font-weight:900;color:var(--tinta);margin:0 0 10px;line-height:1.3;}
+.card p{font-size:16px;color:var(--tinta-2);}
+.card h3{margin-bottom:10px;}
+
+/* 4 otot: kotak 2x2 yang meniru logo */
+.otot-grid{display:grid;gap:14px;margin-top:30px;}
+@media(min-width:640px){.otot-grid{grid-template-columns:repeat(2,1fr);gap:16px;}}
+.otot{border-radius:var(--radius-lg);padding:22px 22px 20px;border:2px solid transparent;}
+.otot-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.otot-head i{width:30px;height:30px;border-radius:9px;flex-shrink:0;}
+.otot h4{font-size:19px;}
+.otot p{font-size:15.5px;color:var(--tinta-2);margin:0 0 10px;}
+.otot .games{font-size:14.5px;font-weight:800;color:var(--tinta);margin:0;}
+.o-atensi{background:var(--ungu-lembut);border-color:#DCD7FA;}
+.o-atensi i{background:var(--ungu);}
+.o-memori{background:var(--aqua-lembut);border-color:#C6EBF1;}
+.o-memori i{background:var(--aqua);}
+.o-impuls{background:var(--kuning-lembut);border-color:#F8E3A6;}
+.o-impuls i{background:var(--kuning);}
+.o-frus{background:var(--koral-lembut);border-color:#FBCFCB;}
+.o-frus i{background:var(--koral);border-radius:50%;}
+.golden{margin-top:32px;font-size:26px;font-weight:900;color:var(--tinta);margin-bottom:4px;line-height:1.25;}
+
+/* langkah */
+.step{display:grid;gap:20px;padding:28px 0;border-top:1px solid var(--garis);}
+.narrow + .step{border-top:none;}
+.step-num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:var(--tinta);color:#fff;font-weight:900;font-size:16px;margin-bottom:12px;}
+.step-copy p{color:var(--tinta-2);margin-top:10px;}
+.step-wide .step-copy{max-width:var(--maxw-text);}
+
+/* peta 28 hari */
+.peta{display:grid;gap:12px;margin-top:28px;}
+@media(min-width:760px){.peta{grid-template-columns:repeat(4,1fr);}}
+.minggu{background:var(--kartu);border:1px solid var(--garis);border-radius:var(--radius);padding:18px;}
+.sec-alt .minggu{background:var(--krem);}
+.minggu small{display:block;font-size:13.5px;font-weight:800;color:var(--tinta-3);}
+.minggu h4{margin:2px 0 8px;}
+.minggu p{font-size:15px;color:var(--tinta-2);margin:0;}
+
+/* screenshot */
+.shot{border:1px solid var(--garis);border-radius:16px;background:var(--kartu);box-shadow:0 2px 0 var(--garis);}
+.shot-r{max-width:300px;width:100%;margin-left:auto;margin-right:auto;}
+@media(min-width:800px){.feat .shot-r{max-width:100%;}}
+[data-zoom]{cursor:zoom-in;}
+.m-only{display:inline;}
+@media(min-width:700px){.m-only{display:none;}}
+
+/* fitur */
+.feat{display:grid;gap:24px;padding:40px 0;border-top:1px solid var(--garis);}
+@media(min-width:800px){
+  .feat.dimg{grid-template-columns:1fr 1.35fr;gap:48px;align-items:center;}
+  .feat.dimg.flip{grid-template-columns:1.35fr 1fr;}
+  .feat-img{order:2;}
+  .feat.flip .feat-img{order:1;}
+  .feat.flip .feat-copy{order:2;}
+}
+.feat-copy h3{margin-bottom:12px;}
+.feat-copy p{color:var(--tinta-2);font-size:16.5px;}
+.kutip{border-left:4px solid var(--ungu);background:var(--krem);border-radius:0 12px 12px 0;padding:12px 16px;font-weight:800;color:var(--tinta);margin:0 0 1rem;}
+.feat-pair{padding-top:40px;border-top:1px solid var(--garis);}
+
+/* jelas dari awal */
+.clear-card p{color:var(--tinta-2);font-size:16.5px;}
+.clear-yes{border-top:5px solid var(--ungu);}
+.clear-no{border-top:5px solid var(--koral);}
+.info-note{margin-top:18px;font-size:15.5px;color:var(--tinta-2);background:var(--kartu);border:1px dashed var(--garis);border-radius:var(--radius);padding:16px 18px;}
+
+/* daftar cocok */
+.fitlist{list-style:none;padding:0;margin:0;}
+.fitlist li{position:relative;padding-left:30px;margin-bottom:13px;font-size:16.5px;}
+.fitlist li::before{position:absolute;left:0;top:0;font-weight:900;font-size:17px;}
+.fit-yes li::before{content:"✓";color:var(--ungu);}
+.fit-no li::before{content:"✕";color:var(--koral-teks);}
+
+/* tabel */
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;border:1px solid var(--garis);border-radius:var(--radius);}
+table{border-collapse:collapse;width:100%;min-width:740px;font-size:15.5px;background:var(--kartu);}
+th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--garis);vertical-align:top;}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:none;}
+thead th{font-size:14px;font-weight:800;color:var(--tinta-2);border-bottom:2px solid var(--garis);}
+thead th.hl{color:var(--ungu-tua);}
+tbody td{color:var(--tinta-2);}
+tbody td.hl{font-weight:800;color:var(--tinta);background:var(--ungu-lembut);}
+tbody th{font-weight:800;color:var(--tinta);width:19%;}
+
+/* testimoni */
+.testi-grid{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 20px 6px;margin:0 -20px;}
+.testi-grid::-webkit-scrollbar{display:none;}
+.testi-grid img{flex:0 0 78%;scroll-snap-align:center;width:100%;height:auto;border:1px solid var(--garis);border-radius:18px;background:var(--kartu);}
+.testi-dots{display:flex;justify-content:center;gap:8px;margin-top:16px;}
+.testi-dots button{width:8px;height:8px;padding:0;border:none;border-radius:50%;background:var(--garis);cursor:pointer;transition:background .2s ease,width .2s ease;}
+.testi-dots button.on{background:var(--ungu);width:22px;border-radius:5px;}
+.testi-dots button:focus-visible{outline:2px solid var(--tinta);outline-offset:3px;}
+@media(min-width:700px){
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;overflow:visible;padding:0;margin:0;}
+  .testi-grid img{flex:none;}
+  .testi-dots{display:none;}
+}
+
+/* harga */
+.price-card{background:var(--kartu);border:1px solid var(--garis);border-radius:var(--radius-lg);padding:26px 22px;max-width:640px;margin:0 auto;}
+@media(min-width:640px){.price-card{padding:36px;}}
+.val-row{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--garis-soft);font-size:15.5px;}
+.val-row span:last-child{color:var(--tinta-2);white-space:nowrap;font-variant-numeric:tabular-nums;}
+.val-total{display:flex;justify-content:space-between;gap:16px;padding:16px 0 0;font-weight:900;}
+.val-total s{color:var(--tinta-3);}
+.price-now{text-align:center;background:var(--ungu-lembut);border-radius:var(--radius);padding:22px;margin:24px 0 0;}
+.price-now small{display:block;font-size:15px;font-weight:800;color:var(--tinta-2);}
+.price-now .amt{font-size:clamp(42px,9vw,56px);font-weight:900;color:var(--tinta);line-height:1.05;letter-spacing:-0.03em;}
+.price-now .sub{font-size:15px;color:var(--tinta-2);margin-top:6px;}
+.price-cta{text-align:center;margin-top:24px;}
+.akses-steps{margin-top:22px;}
+.akses-steps h4{margin-bottom:8px;}
+.akses-steps p{font-size:15.5px;}
+.akses-steps .warn{color:var(--koral-teks);font-weight:800;}
+.blok{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;font-weight:900;margin-bottom:12px;color:var(--tinta);}
+.b1{background:var(--ungu);color:#fff;}
+.b2{background:var(--aqua);}
+.b3{background:var(--kuning);}
+
+/* faq */
+.faq-key{background:var(--krem);border:3px solid var(--ungu);border-radius:var(--radius);padding:22px;margin-bottom:16px;}
+.faq-key h3{font-size:clamp(20px,3.2vw,24px);margin-bottom:12px;}
+.faq-key p{font-size:17.5px;color:var(--tinta-2);margin:0 0 10px;}
+.faq-key ol{margin:0;padding:0 0 0 24px;font-size:clamp(17.5px,2.6vw,19px);line-height:1.5;}
+.faq-key li{margin-bottom:10px;padding-left:4px;}
+.faq-key li:last-child{margin-bottom:0;}
+.faq-key li::marker{font-weight:900;color:var(--ungu);}
+.faq{border-top:1px solid var(--garis);margin-top:30px;}
+.faq details{border-bottom:1px solid var(--garis);}
+.faq summary{cursor:pointer;padding:18px 34px 18px 0;position:relative;font-weight:800;font-size:16.5px;color:var(--tinta);list-style:none;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"";position:absolute;right:6px;top:25px;width:9px;height:9px;border-right:2.5px solid var(--ungu);border-bottom:2.5px solid var(--ungu);transform:rotate(45deg);transition:transform .18s ease;}
+.faq details[open] summary::after{transform:rotate(-135deg);top:28px;}
+.faq summary:focus-visible{outline:2px solid var(--ungu);outline-offset:2px;}
+.faq .ans{padding:0 0 20px;color:var(--tinta-2);font-size:16.5px;}
+
+/* penutup */
+.closing-line{font-size:26px;font-weight:900;color:#fff;margin-top:24px;line-height:1.3;}
+.blok4{display:inline-grid;grid-template-columns:repeat(2,22px);gap:6px;margin-bottom:22px;}
+.blok4 i{width:22px;height:22px;border-radius:7px;}
+
+/* sticky */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--kartu);border-top:1px solid var(--garis);padding:10px 16px;box-shadow:0 -3px 14px rgba(34,34,59,.12);display:flex;align-items:center;gap:12px;transform:translateY(110%);transition:transform .25s ease;}
+.sticky-cta.on{transform:translateY(0);}
+.sticky-cta .sp{flex:1;min-width:0;}
+.sticky-cta .sp b{display:block;font-size:17px;line-height:1.2;}
+.sticky-cta .sp s{font-size:13px;color:var(--tinta-3);font-weight:800;margin-left:4px;}
+.sticky-cta .sp small{font-size:12.5px;color:var(--tinta-2);}
+.sticky-cta .btn{width:auto;padding:13px 20px;font-size:15.5px;flex-shrink:0;}
+@media(min-width:900px){.sticky-cta{display:none;}}
+body.has-sticky{padding-bottom:84px;}
+@media(min-width:900px){body.has-sticky{padding-bottom:0;}}
+
+/* footer */
+.site-foot{background:var(--kartu);border-top:1px solid var(--garis);padding:30px 0;text-align:center;}
+.site-foot .logo{display:block;margin-bottom:6px;}
+.site-foot small{font-size:13.5px;color:var(--tinta-3);}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(20,20,36,.92);display:none;align-items:center;justify-content:center;padding:56px 12px 20px;}
+.lb.on{display:flex;}
+.lb-inner{max-width:1100px;width:100%;max-height:100%;overflow:auto;-webkit-overflow-scrolling:touch;border-radius:10px;}
+.lb img{width:auto;max-width:100%;max-height:84vh;margin:0 auto;border-radius:10px;}
+.lb-close{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;background:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.lb-close:focus-visible{outline:3px solid var(--kuning);outline-offset:2px;}
+.lb-close svg{width:18px;height:18px;}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <div class="logo">Child Brain <em>Activation</em></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-hd">
+        <span class="hero-for">Untuk anak 3 sampai 10 tahun</span>
+        <h1>Bukan anaknya malas. Otot fokusnya belum pernah dilatih.</h1>
+      </div>
+      <div class="hero-img">
+        <img src="img/hero-mockup.webp" alt="Child Brain Activation, latihan fokus 7 menit sehari: anak mengerjakan PR sendiri sementara Bunda memantau dari jauh" width="980" height="1232" fetchpriority="high">
+      </div>
+      <div class="hero-rest">
+        <p class="lead">Anak yang bengong di depan PR, lupa bawa tas, dan bilang &ldquo;aku nggak bisa&rdquo; biasanya bukan kurang pintar. Ada empat kemampuan fokus yang belum terlatih. Child Brain Activation adalah app di HP atau laptop yang melatih keempatnya lewat permainan 7 menit sehari selama 28 hari, lalu menjembatani latihannya ke PR yang asli.</p>
+        <ul class="hero-bullets">
+          <li><b>Duduk 5 menit sudah bangun?</b> Satu sesi cuma 7 menit: 3 permainan singkat, lalu Napas Balon untuk menenangkan.</li>
+          <li><b>Gak tahu masalahnya di mana?</b> Cek Otak 12 pertanyaan memetakan 4 otot fokus dan memilih satu yang dilatih duluan.</li>
+          <li><b>PR selalu harus ditungguin?</b> Mulai hari ke-8, PR Mode memecah PR jadi kartu kecil dengan waktu yang pas untuk lama fokus anak.</li>
+        </ul>
+        <div class="hero-price"><s>Rp497.000</s><b>Rp127.000</b></div>
+        <div class="cta-block">
+          <a class="btn" href="checkout.html">Mulai 28 Hari Fokus → Rp127.000</a>
+          <p class="btn-note">Dibuka dari browser HP, tablet, atau laptop. Tanpa install, tanpa akun.</p>
+        </div>
+        <div class="hero-facts">
+          <span>7 menit sehari</span>
+          <span>Program 28 hari</span>
+          <span>10 permainan</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADEGAN MASALAH -->
+<section>
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:34px;">
+      <h2>Baca tiga ini. Kalau ada satu yang kejadian minggu ini, Bunda di tempat yang benar.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <p class="card-quote">&ldquo;Udah empat puluh menit, baru dua soal.&rdquo;</p>
+        <p>Bunda sudah duduk di sebelahnya dari tadi. Pensilnya diputar-putar, halamannya dibolak-balik, matanya ke mana-mana. Begitu Bunda berdiri sebentar ke dapur, PR-nya berhenti total.</p>
+      </div>
+      <div class="card">
+        <p class="card-quote">&ldquo;Tasnya mana, Nak?&rdquo;</p>
+        <p>Sudah di depan pagar, sepatu baru sebelah, bekal masih di meja, tas tertinggal di kursi. Instruksi tiga langkah, yang dikerjakan cuma yang pertama. Lagi.</p>
+      </div>
+      <div class="card">
+        <p class="card-quote">&ldquo;Aku nggak bisa, Ma. Aku bodoh.&rdquo;</p>
+        <p>Satu soal terasa susah, dia langsung menangis dan menutup buku. Bunda ikut naik nada, malamnya berakhir dengan dua orang yang sama-sama capek dan PR yang tetap belum selesai.</p>
+      </div>
+    </div>
+    <p class="narrow lead center" style="margin-top:30px;">Tiga adegan ini kelihatan beda, dan semuanya bukan karena anak Bunda kurang pintar atau Bunda kurang sabar. Akarnya sama: kemampuan fokus yang belum pernah dilatih secara khusus.</p>
+  </div>
+</section>
+
+<!-- MEKANISME 4 OTOT -->
+<section class="sec-alt">
+  <div class="wrap">
+    <div class="narrow">
+      <h2>Fokus itu bukan bakat. Fokus itu empat otot, dan otot bisa dilatih.</h2>
+      <p style="margin-top:18px;">Anak disuruh fokus setiap hari, tapi jarang ada yang benar-benar melatih kemampuan fokusnya. Padahal fokus terdiri dari empat kemampuan yang berbeda. Anak yang bengong, anak yang lupa instruksi, anak yang terburu-buru, dan anak yang gampang menyerah, masing-masing lemah di otot yang berbeda.</p>
+    </div>
+
+    <div class="otot-grid">
+      <div class="otot o-atensi">
+        <div class="otot-head"><i></i><h4>Atensi bertahan</h4></div>
+        <p>Bertahan pada satu hal sampai selesai, tanpa pindah ke hal lain.</p>
+        <p class="games">Dilatih lewat Lampu Hijau, Jaga Matamu, Detektif Beda</p>
+      </div>
+      <div class="otot o-memori">
+        <div class="otot-head"><i></i><h4>Memori kerja</h4></div>
+        <p>Mengingat instruksi 2 sampai 3 langkah sambil mengerjakannya.</p>
+        <p class="games">Dilatih lewat Urutan Rahasia, Isi Tas, Kartu Pasangan, dan Misi Bareng Bunda</p>
+      </div>
+      <div class="otot o-impuls">
+        <div class="otot-head"><i></i><h4>Kontrol impuls</h4></div>
+        <p>Menahan diri, membaca soal sampai habis sebelum menjawab.</p>
+        <p class="games">Dilatih lewat Tangkap yang Benar, Kebalikan, Patung Diam</p>
+      </div>
+      <div class="otot o-frus">
+        <div class="otot-head"><i></i><h4>Tahan frustrasi</h4></div>
+        <p>Tetap mencoba saat terasa susah, bukan menangis lalu menutup buku.</p>
+        <p class="games">Dilatih lewat Susun Balok dan &ldquo;Hampir! Coba lagi&rdquo; di setiap permainan</p>
+      </div>
+    </div>
+
+    <div class="narrow">
+      <p style="margin-top:28px;">Di psikologi anak, keempat kemampuan ini dikenal sebagai bagian dari fungsi eksekutif. Child Brain Activation melatihnya dengan cara yang paling anak suka: bermain. Tingkat kesulitan tiap permainan naik turun sendiri, supaya anak selalu &ldquo;menang tipis&rdquo;, tidak kegampangan sampai bosan, tidak kesusahan sampai menyerah.</p>
+      <p class="golden">Main dulu 7 menit, baru ke PR.</p>
+      <p style="color:var(--tinta-2);">Bukan les tambahan. Anak merasa sedang bermain, padahal ototnya sedang dilatih.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CARA KERJA -->
+<section>
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:10px;">
+      <h2>Bunda gak perlu nyiapin apa-apa. App-nya yang nuntun.</h2>
+    </div>
+
+    <div class="step step-wide" style="border-top:none;">
+      <div class="step-copy">
+        <div class="step-num">1</div>
+        <h3>Isi Cek Otak, sekitar 3 menit</h3>
+        <p>Data singkat anak, lalu 12 pertanyaan tentang kebiasaannya sehari-hari: bengong saat mendengarkan, lupa bawa barang, menjawab sebelum soal selesai dibaca, menangis saat soal terasa susah.</p>
+      </div>
+    </div>
+
+    <div class="step step-wide">
+      <div class="step-copy">
+        <div class="step-num">2</div>
+        <h3>Lihat Profil Fokus anak</h3>
+        <p>Kekuatan 4 otot fokus dalam bentuk batang, satu otot yang dilatih duluan, dan level awal permainan yang pas untuk umurnya.</p>
+      </div>
+    </div>
+
+    <div class="step step-wide">
+      <div class="step-copy">
+        <div class="step-num">3</div>
+        <h3>Tiap hari, tekan Main 7 Menit</h3>
+        <p>Dari layar Hari Ini, satu tombol. Anak main 3 permainan, ditutup Napas Balon, lalu dapat bintang dan satu stiker baru. Selesai untuk hari itu.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="peta">
+        <div class="minggu"><small>Minggu 1</small><h4>Hutan</h4><p>Target: duduk 10 menit tanpa bangun.</p></div>
+        <div class="minggu"><small>Minggu 2</small><h4>Laut</h4><p>Target: instruksi 3 langkah dikerjakan lengkap.</p></div>
+        <div class="minggu"><small>Minggu 3</small><h4>Gunung api</h4><p>Target: membaca soal sampai selesai, tidak mengamuk saat susah.</p></div>
+        <div class="minggu"><small>Minggu 4</small><h4>Luar angkasa</h4><p>Target: PR dikerjakan, Bunda di ruangan lain.</p></div>
+      </div>
+    </div>
+
+    <div class="cta-block narrow center" style="margin-top:34px;">
+      <a class="btn" href="checkout.html">Mulai 28 Hari Fokus → Rp127.000</a>
+    </div>
+  </div>
+</section>
+
+<!-- FITUR -->
+<section class="sec-alt">
+  <div class="wrap">
+    <div class="narrow center">
+      <h2>Yang dibuka tiap hari</h2>
+    </div>
+
+    <div class="feat dimg" style="border-top:none;">
+      <div class="feat-copy">
+        <p class="eyebrow">Sesi 7 Menit</p>
+        <h3>&ldquo;Tekan wajah senyum. Tahan kalau cemberut.&rdquo;</h3>
+        <p style="margin-top:12px;">Sepuluh permainan pendek, masing-masing dengan satu kalimat instruksi dan contoh gerak sebelum mulai. Tiap 5 percobaan, app menilai: kalau terlalu gampang, naik sedikit. Kalau terlalu susah, turun sedikit. Anak tidak pernah melihat kata &ldquo;level turun&rdquo;, yang dia lihat cuma bintang.</p>
+        <p>Keliru bukan &ldquo;salah&rdquo;. Yang muncul &ldquo;Hampir! Coba lagi.&rdquo;</p>
+      </div>
+      <div class="feat-img">
+        <picture><source media="(min-width:800px)" srcset="img/sesi-d.webp" width="1400" height="868"><img class="shot shot-r" data-zoom src="img/sesi.webp" alt="Permainan Tangkap yang Benar: wajah senyum di tengah layar, aturan tekan dan tahan di atas, dan tulisan Hampir! Coba lagi" width="728" height="1568" loading="lazy"></picture>
+      </div>
+    </div>
+
+    <div class="feat flip dimg">
+      <div class="feat-copy">
+        <p class="eyebrow">PR Mode</p>
+        <h3>PR dipecah kecil. Bunda tahu harus bilang apa.</h3>
+        <p style="margin-top:12px;">Bunda ketik jumlah soalnya, app memecahnya jadi kartu 1 sampai 3 soal. Waktu tiap kartu ikut lama fokus anak, ada jeda napas balon di antaranya, dan bunyi halus saat waktunya pindah kartu.</p>
+        <p>Saat anak bilang &ldquo;nggak bisa&rdquo;, &ldquo;nggak ngerti&rdquo;, &ldquo;aku bodoh&rdquo;, atau mulai bengong, ada kalimat siap pakai untuk Bunda. Salah satunya:</p>
+        <p class="kutip">&ldquo;Kamu bukan bodoh. Ini cuma belum biasa.&rdquo;</p>
+        <p>Posisi Bunda pelan-pelan bergeser: dari duduk di sebelah, ke seberang meja, sampai ruangan lain.</p>
+      </div>
+      <div class="feat-img">
+        <picture><source media="(min-width:800px)" srcset="img/pr-mode-d.webp" width="1400" height="868"><img class="shot shot-r" data-zoom src="img/pr-mode.webp" alt="Panel Untuk Bunda di PR Mode: pilihan Nggak bisa, Nggak ngerti, Aku bodoh, Mulai bengong, kalimat siap pakai, dan kapan boleh membantu" width="728" height="900" loading="lazy"></picture>
+      </div>
+    </div>
+
+    <div class="feat dimg">
+      <div class="feat-copy">
+        <p class="eyebrow">Rapor Fokus</p>
+        <h3>Bunda lihat sendiri perubahannya, bukan menebak.</h3>
+        <p style="margin-top:12px;">Grafik lama fokus per sesi, kekuatan 4 otot per minggu, jumlah PR yang dikerjakan sendiri, dan posisi pendampingan sekarang.</p>
+        <p>Di hari ke-14 dan ke-28 ada Cek Ulang singkat, jadi Bunda bisa membandingkan sebelum dan sesudah.</p>
+      </div>
+      <div class="feat-img">
+        <picture><source media="(min-width:800px)" srcset="img/rapor-d.webp" width="1400" height="868"><img class="shot shot-r" data-zoom src="img/rapor.webp" alt="Rapor Fokus hari 28: lama fokus 6 menit dari awal 4 menit, PR sendiri 19 dari 21, dan grafik lama fokus per sesi" width="728" height="1568" loading="lazy"></picture>
+      </div>
+    </div>
+
+    <div class="feat-pair">
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Ada misi tanpa layar juga.</h3>
+          <p>Misi Bareng Bunda: satu menit, tanpa gadget. Bunda membacakan instruksi sekali saja, misalnya ambil sendok di dapur, taruh di meja, lalu tepuk tangan dua kali. Anak mengerjakan, Bunda menilai. Ada juga Misi Pagi dan Misi Sore: papan centang bergambar untuk tas, sepatu, botol minum, dan buku PR.</p>
+        </div>
+        <div class="card">
+          <h3>Yang bikin dia minta main lagi besok.</h3>
+          <p>Tiap sesi selesai, satu stiker baru masuk album. Ada 60 stiker untuk dikumpulkan, Peta 28 Hari yang maju sendiri, dan Piagam di hari ke-28. Area Bunda, yaitu Rapor dan Pengaturan, dikunci tombol tahan 3 detik supaya tidak diutak-atik anak.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPAYA JELAS -->
+<section>
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:28px;">
+      <h2>Supaya jelas dari awal</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="card clear-card clear-yes">
+        <h3>Child Brain Activation bisa</h3>
+        <p>memetakan 4 otot fokus anak lewat Cek Otak, melatihnya 7 menit sehari dengan permainan yang menyesuaikan kemampuannya, menjembatani latihan ke PR lewat PR Mode, dan menampilkan kemajuannya dalam grafik.</p>
+      </div>
+      <div class="card clear-card clear-no">
+        <h3>Child Brain Activation bukan</h3>
+        <p>terapi, alat diagnosis, les, atau video pelajaran. App ini tidak mengajarkan materi sekolah dan tidak menjanjikan nilai naik. Yang dilatih adalah kebiasaan fokus yang bisa Bunda lihat sendiri: lama duduk, tugas selesai, dan PR yang dikerjakan tanpa ditungguin.</p>
+      </div>
+    </div>
+    <p class="narrow info-note">Kalau polanya sudah lebih dari 6 bulan dan terjadi di rumah maupun di sekolah, anak sangat sulit diam hampir sepanjang hari, atau anak kelas 2 ke atas belum bisa membaca kalimat sederhana, ada baiknya juga dilihat oleh psikolog anak. Latihan fokus tetap aman dijalankan untuk semua anak.</p>
+  </div>
+</section>
+
+<!-- UNTUK SIAPA -->
+<section class="sec-alt">
+  <div class="wrap">
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 style="margin-bottom:16px;">Cocok kalau</h3>
+        <ul class="fitlist fit-yes">
+          <li>Anak Bunda pintar, tapi jarang ada tugas yang selesai.</li>
+          <li>PR satu halaman bisa makan satu sampai dua jam, dan cuma jalan kalau ditungguin.</li>
+          <li>Bunda capek mengomel tiap malam dan mau cara yang lebih tenang.</li>
+          <li>Bunda mau waktu anak pegang HP dipakai untuk sesuatu yang melatih, bukan cuma hiburan.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:16px;">Bukan untuk Bunda kalau</h3>
+        <ul class="fitlist fit-no">
+          <li>Bunda cari les atau video yang mengajarkan materi pelajaran.</li>
+          <li>Bunda cari hasil instan. Ini latihan harian, hasilnya bertahap dan beda tiap anak.</li>
+          <li>Bunda cari diagnosis atau terapi. Untuk itu, temui psikolog anak.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERBANDINGAN -->
+<section>
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:28px;">
+      <h2>Kenapa Child Brain Activation, bukan cara yang sekarang.</h2>
+    </div>
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Ditungguin tiap malam</th>
+            <th>Buku aktivitas brain gym</th>
+            <th>Game di HP</th>
+            <th class="hl">Child Brain Activation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th>Yang dilatih</th><td>Tidak ada, PR-nya dikejar selesai</td><td>Lembar latihan atau gerakan</td><td>Umumnya hiburan</td><td class="hl">4 otot fokus, satu per satu</td></tr>
+          <tr><th>Ikut kemampuan anak</th><td>Tidak</td><td>Sama untuk semua anak</td><td>Jarang</td><td class="hl">Naik turun otomatis tiap 5 percobaan</td></tr>
+          <tr><th>Nyambung ke PR</th><td>PR-nya iya, fokusnya tidak</td><td>Tidak</td><td>Tidak</td><td class="hl">PR Mode dan kalimat siap pakai untuk Bunda</td></tr>
+          <tr><th>Bunda tahu kemajuannya</th><td>Dari perasaan</td><td>Dari halaman yang terisi</td><td>Skor game</td><td class="hl">Grafik lama fokus, sebelum dan sesudah</td></tr>
+          <tr><th>Waktu per hari</th><td>Bisa 1 sampai 2 jam</td><td>Tergantung mood</td><td>Sering kebablasan</td><td class="hl">7 menit, lalu selesai</td></tr>
+          <tr><th>Biaya</th><td>Kesabaran Bunda</td><td>Puluhan ribu, habis sekali isi</td><td>Banyak yang gratis, penuh iklan</td><td class="hl">Rp127.000 sekali bayar</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section class="sec-alt">
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:28px;">
+      <h2>Cerita dari bunda yang anaknya sudah main.</h2>
+      <p class="lead" style="margin-top:12px;"><span class="m-only">Geser untuk melihat cerita lainnya. </span>Nomor disensor untuk menjaga privasi.</p>
+    </div>
+    <div class="testi-grid">
+      <img src="img/testi1.webp" alt="Screenshot WhatsApp: bunda bercerita menahan diri tidak membantu, anaknya membaca ulang soal lalu menjawab sendiri, dan posisi pendampingan naik sampai ruangan lain" width="392" height="784" loading="lazy">
+      <img src="img/testi2.webp" alt="Screenshot WhatsApp: bunda bercerita memakai kalimat siap pakai di PR Mode, dan anaknya justru mengajak napas balon saat bunda mau membentak" width="392" height="784" loading="lazy">
+      <img src="img/testi3.webp" alt="Screenshot WhatsApp: bunda bercerita kakak ikut membacakan Misi Bareng Bunda untuk adiknya dan menunjukkan grafik fokus yang naik" width="392" height="784" loading="lazy">
+    </div>
+    <div class="testi-dots" id="testiDots" aria-hidden="true">
+      <button type="button" class="on" data-i="0" aria-label="Testimoni 1"></button>
+      <button type="button" data-i="1" aria-label="Testimoni 2"></button>
+      <button type="button" data-i="2" aria-label="Testimoni 3"></button>
+    </div>
+  </div>
+</section>
+
+<!-- HARGA -->
+<section>
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:28px;">
+      <h2>Sekitar Rp4.500 per hari, selama 28 hari.</h2>
+      <p class="lead" style="margin-top:14px;">Buku aktivitas brain gym dijual puluhan ribu, habis sekali isi, dan soalnya sama untuk semua anak. Child Brain Activation berisi 10 permainan yang levelnya ikut kemampuan anak Bunda, ditambah PR Mode dan Rapor, dan bisa dipakai lebih dari satu anak.</p>
+    </div>
+    <div class="price-card">
+      <h3 class="center" style="margin-bottom:20px;">Yang Bunda dapat begitu masuk</h3>
+      <div class="val-row"><span>10 permainan adaptif, Sesi 7 Menit dan Napas Balon</span><span>Rp150.000</span></div>
+      <div class="val-row"><span>PR Mode dan kalimat siap pakai untuk Bunda</span><span>Rp80.000</span></div>
+      <div class="val-row"><span>Cek Otak dan Profil Fokus 4 otot</span><span>Rp75.000</span></div>
+      <div class="val-row"><span>Program 28 hari, 4 dunia, Cek Ulang hari 14 dan 28</span><span>Rp70.000</span></div>
+      <div class="val-row"><span>Misi Bareng Bunda, Misi Pagi, dan Misi Sore</span><span>Rp45.000</span></div>
+      <div class="val-row"><span>Rapor Fokus dengan grafik</span><span>Rp40.000</span></div>
+      <div class="val-row"><span>60 stiker, Peta 28 Hari, dan Piagam</span><span>Rp22.000</span></div>
+      <div class="val-row"><span>Banyak profil anak, cadangan data, HP dan laptop</span><span>Rp15.000</span></div>
+      <div class="val-total"><span>Total nilai wajar</span><span><s>Rp497.000</s></span></div>
+      <div class="price-now">
+        <small>Harga hari ini</small>
+        <div class="amt">Rp127.000</div>
+        <p class="sub">Sekali bayar. Semua fitur langsung terbuka, tanpa paket basic dan premium.</p>
+      </div>
+      <div class="price-cta">
+        <a class="btn" href="checkout.html">Mulai 28 Hari Fokus → Rp127.000</a>
+        <p class="btn-note">Panduan Akses berisi kode masuk dikirim ke email yang Bunda pakai saat order.</p>
+      </div>
+    </div>
+
+    <div class="narrow center" style="margin-top:58px;">
+      <h3>Dari bayar sampai main, tiga langkah.</h3>
+    </div>
+    <div class="grid grid-3 akses-steps">
+      <div class="card">
+        <span class="blok b1">1</span>
+        <h4>Selesaikan pembayaran</h4>
+        <p>Bisa pakai QRIS, transfer bank, atau e-wallet.</p>
+      </div>
+      <div class="card">
+        <span class="blok b2">2</span>
+        <h4>Buka email, klik link biru</h4>
+        <p>Klik link biru yang diawali <b>drive.google.com</b>. <span class="warn">Bukan tombol &quot;Unduh Produk&quot;.</span> Kalau belum ada di kotak masuk, cek folder Spam atau Promosi.</p>
+      </div>
+      <div class="card">
+        <span class="blok b3">3</span>
+        <h4>Masukkan kode, isi Cek Otak</h4>
+        <p>Buka link app yang ada di Panduan Akses, masukkan kode, lalu isi Cek Otak. Hari pertama langsung bisa main.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec-alt">
+  <div class="wrap">
+    <div class="narrow">
+      <h2 class="center" style="margin-bottom:26px;">Pertanyaan yang sering masuk</h2>
+
+      <div class="faq-key">
+        <h3>Aku sudah bayar. Kodenya di mana?</h3>
+        <ol>
+          <li>Buka email pembelianmu.</li>
+          <li>Klik <b>link biru yang diawali drive.google.com</b>.</li>
+          <li>PDF Panduan Akses terbuka. Kodenya ada di dalamnya.</li>
+        </ol>
+      </div>
+
+      <div class="faq-key">
+        <h3>Aku sudah klik &quot;Unduh Produk&quot;, tapi gak ada kodenya.</h3>
+        <p>Tenang, Bunda cuma salah klik. Balik ke email yang sama, lalu:</p>
+        <ol>
+          <li>Cari <b>link biru yang diawali drive.google.com</b>. Letaknya di atas tombol Unduh Produk.</li>
+          <li>Klik link itu, bukan tombolnya.</li>
+          <li>Kodenya ada di PDF Panduan Akses yang terbuka.</li>
+        </ol>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Kodenya ditolak.</summary>
+          <div class="ans">Pastikan Bunda membuka link app yang ada di Panduan Akses, lalu ketik atau salin kodenya apa adanya. Huruf besar kecil dan spasi yang ikut tersalin gak masalah.</div>
+        </details>
+        <details>
+          <summary>Ini app yang harus di-install?</summary>
+          <div class="ans">Tidak. Child Brain Activation dibuka lewat browser di HP, tablet, atau laptop. Tampilannya menyesuaikan, jadi di laptop pun tampil sebagai layar laptop, bukan HP yang dibesarkan. Supaya cepat dibuka, simpan ke layar utama HP seperti app biasa.</div>
+        </details>
+        <details>
+          <summary>Perlu bikin akun atau password?</summary>
+          <div class="ans">Tidak. Cukup satu kode akses.</div>
+        </details>
+        <details>
+          <summary>Bukannya malah nambah screen time?</summary>
+          <div class="ans">Satu sesi cuma 7 menit dan ditutup Napas Balon untuk menenangkan, bukan video yang jalan terus. Di Pengaturan Bunda bisa mengunci satu sesi per hari. Misi Bareng Bunda malah dikerjakan tanpa gadget sama sekali.</div>
+        </details>
+        <details>
+          <summary>Anakku belum lancar membaca. Bisa?</summary>
+          <div class="ans">Bisa. Instruksi permainan pendek dan bergambar, ada contoh gerak sebelum mulai, dan suara instruksi bisa dinyalakan di Pengaturan kalau browser Bunda mendukung. Di awal, dampingi sebentar.</div>
+        </details>
+        <details>
+          <summary>Bisa untuk berapa anak?</summary>
+          <div class="ans">Lebih dari satu. Tiap anak punya Cek Otak, program 28 hari, level, dan stikernya sendiri.</div>
+        </details>
+        <details>
+          <summary>Kalau terlewat sehari?</summary>
+          <div class="ans">Gak apa-apa. Tidak ada hukuman dan harinya tidak mundur. Kalau terlewat 3 hari berturut-turut, app menawarkan untuk mengulang minggu itu.</div>
+        </details>
+        <details>
+          <summary>Setelah 28 hari, gimana?</summary>
+          <div class="ans">Anak dapat Piagam, lalu Bunda bisa pilih mode pemeliharaan dengan anjuran 3 sesi per minggu, atau mulai siklus 28 hari baru dari level terakhirnya.</div>
+        </details>
+        <details>
+          <summary>Kalau ganti HP, progresnya ikut?</summary>
+          <div class="ans">Bisa. Simpan cadangan dari Pengaturan, masuk dengan kode yang sama di HP baru, lalu pulihkan dari cadangan.</div>
+        </details>
+        <details>
+          <summary>Butuh internet?</summary>
+          <div class="ans">Ya, untuk membuka app-nya.</div>
+        </details>
+        <details>
+          <summary>Ada biaya bulanan?</summary>
+          <div class="ans">Tidak ada. Sekali bayar.</div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PENUTUP -->
+<section class="sec-deep">
+  <div class="wrap">
+    <div class="narrow center">
+      <div class="blok4" aria-hidden="true"><i style="background:#6C5CE7"></i><i style="background:#22B8CF"></i><i style="background:#FDCB3E"></i><i style="background:#FF6B6B;border-radius:50%"></i></div>
+      <h2>Malam ini cukup mulai dari Cek Otak, sekitar 3 menit.</h2>
+      <p class="lead" style="margin-top:20px;">Bunda sudah coba menungguin, mengomel, mengurangi HP, sampai les tambahan. Satu hal yang belum pernah dicoba: melatih otot fokusnya langsung, sedikit demi sedikit, tiap hari.</p>
+      <p class="closing-line">7 menit hari ini. 28 hari ke depan.</p>
+      <div class="cta-block">
+        <a class="btn" href="checkout.html">Mulai 28 Hari Fokus → Rp127.000</a>
+        <p class="btn-note">Dibuka dari browser HP, tablet, atau laptop. Tanpa install, tanpa akun.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span class="logo">Child Brain <em>Activation</em></span>
+    <small>© 2026 Child Brain Activation. Semua hak dilindungi.</small>
+  </div>
+</footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <div class="sp">
+    <b>Rp127.000<s>Rp497.000</s></b>
+    <small>Buka dari HP, tanpa install</small>
+  </div>
+  <a class="btn" href="checkout.html">Mulai Sekarang</a>
+</div>
+
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Gambar diperbesar">
+  <button type="button" class="lb-close" id="lbClose" aria-label="Tutup gambar">
+    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" stroke="#22223B" stroke-width="1.8" stroke-linecap="round"/></svg>
+  </button>
+  <div class="lb-inner"><img id="lbImg" src="" alt=""></div>
+</div>
+
+<script>
+(function(){
+  var bar=document.getElementById('stickyCta');
+  var hero=document.querySelector('.hero');
+  if(!bar||!hero)return;
+  document.body.classList.add('has-sticky');
+  function check(){bar.classList.toggle('on',hero.getBoundingClientRect().bottom<0);}
+  check();
+  window.addEventListener('scroll',check,{passive:true});
+  window.addEventListener('resize',check);
+})();
+(function(){
+  var track=document.querySelector('.testi-grid');
+  var dots=document.getElementById('testiDots');
+  if(!track||!dots)return;
+  var slides=track.querySelectorAll('img');
+  var btns=dots.querySelectorAll('button');
+  function active(){
+    var mid=track.scrollLeft+track.clientWidth/2,best=0,min=Infinity;
+    for(var i=0;i<slides.length;i++){
+      var c=slides[i].offsetLeft+slides[i].offsetWidth/2,d=Math.abs(c-mid);
+      if(d<min){min=d;best=i;}
+    }
+    for(var j=0;j<btns.length;j++)btns[j].classList.toggle('on',j===best);
+  }
+  var t;
+  track.addEventListener('scroll',function(){clearTimeout(t);t=setTimeout(active,60);},{passive:true});
+  for(var k=0;k<btns.length;k++){
+    btns[k].addEventListener('click',function(){
+      var el=slides[Number(this.getAttribute('data-i'))];
+      if(!el)return;
+      track.scrollTo({left:el.offsetLeft-(track.clientWidth-el.offsetWidth)/2,behavior:'smooth'});
+    });
+  }
+  active();
+})();
+(function(){
+  var lb=document.getElementById('lightbox'),img=document.getElementById('lbImg'),close=document.getElementById('lbClose');
+  var last=null;
+  function open(src,alt){img.src=src;img.alt=alt||'';lb.classList.add('on');document.body.style.overflow='hidden';close.focus();}
+  function shut(){lb.classList.remove('on');img.src='';document.body.style.overflow='';if(last)last.focus();}
+  var zs=document.querySelectorAll('[data-zoom]');
+  for(var i=0;i<zs.length;i++){
+    zs[i].setAttribute('tabindex','0');
+    zs[i].setAttribute('role','button');
+    zs[i].addEventListener('click',function(){last=this;open(this.currentSrc||this.src,this.alt);});
+    zs[i].addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();this.click();}});
+  }
+  close.addEventListener('click',shut);
+  lb.addEventListener('click',function(e){if(e.target===lb)shut();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('on'))shut();});
+})();
+</script>
+</body>
+</html>
