@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deep Smart | Ide dari Buku Beneran, Dibaca Semudah Scroll</title>
+<meta name="description" content="Deep Smart adalah app yang scroll-nya kayak TikTok, tapi tiap kartu berisi satu ide dari buku, riset, dan pemikir beneran, lengkap dengan sumbernya.">
+<meta name="theme-color" content="#0F1115">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230F1115'/%3E%3Cg transform='translate%2832 32%29 scale%280.84%29 translate%28-34 -32%29'%3E%3Cpath fill='%23F2EFE8' fill-rule='evenodd' d='M12 8h20c14.4 0 24 9.6 24 24s-9.6 24-24 24H12zM23 18.5h8.5c8.3 0 13.5 5.4 13.5 13.5s-5.2 13.5-13.5 13.5H23z'/%3E%3Ccircle cx='33' cy='32' r='5.5' fill='%23E8B04B'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  /* warna app Deep Smart */
+  --bg:#0F1115;
+  --bg-alt:#14171D;
+  --card:#181B22;
+  --card-in:#20242D;
+  --deep:#0A0B0E;
+  --line:#2A2F3A;
+  --line-soft:#1F232B;
+  --ink:#F2EFE8;
+  --muted:#A7ABB5;
+  --muted-light:#7D828D;
+  --amber:#E8B04B;
+  --amber-deep:#B9862C;
+  --amber-ink:#0F1115;
+  --bahaya:#F07A5A;
+  --psi:#8FA8FF;
+  --fil:#C9A7FF;
+  --pro:#6FCF97;
+  --bis:#5CC8D7;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --radius:14px;
+  --radius-lg:20px;
+  --maxw:1120px;
+  --maxw-text:680px;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;overflow-x:hidden;}
+::selection{background:rgba(232,176,75,.35);color:#fff;}
+img{max-width:100%;height:auto;display:block;}
+a{color:inherit;}
+h1,h2,h3,h4{margin:0;color:var(--ink);}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.14;letter-spacing:-0.015em;}
+h1{font-size:clamp(34px,6.2vw,56px);line-height:1.06;}
+h2{font-size:clamp(27px,4.3vw,40px);}
+h3{font-size:clamp(22px,2.8vw,27px);}
+h4{font-size:18px;font-weight:700;font-family:var(--sans);line-height:1.3;}
+p{margin:0 0 1rem;}
+p:last-child{margin-bottom:0;}
+strong{font-weight:700;color:var(--ink);}
+
+/* layout */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
+.narrow{max-width:var(--maxw-text);margin-left:auto;margin-right:auto;}
+section{padding:58px 0;}
+@media(min-width:768px){section{padding:82px 0;}}
+.sec-alt{background:var(--bg-alt);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);}
+.lead{font-size:clamp(17px,2vw,19px);color:var(--muted);}
+.center{text-align:center;}
+
+/* logo CSS */
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-mark{width:26px;height:28px;flex-shrink:0;display:block;}
+.logo-text{font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:-0.02em;color:var(--ink);line-height:1;}
+.site-head{background:var(--deep);border-bottom:1px solid var(--line-soft);padding:14px 0;}
+
+/* tombol */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--amber);color:var(--amber-ink);text-decoration:none;
+  font-family:var(--sans);font-weight:800;font-size:18px;line-height:1.2;
+  padding:16px 28px;border-radius:12px;border:none;cursor:pointer;
+  box-shadow:0 4px 0 var(--amber-deep);
+  transition:transform .1s ease,box-shadow .1s ease,background .15s ease;
+  text-align:center;width:100%;
+}
+@media(min-width:560px){.btn{width:auto;font-size:19px;padding:17px 34px;}}
+.btn:hover{background:#EDBB5E;}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--amber-deep);}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:4px;}
+.btn-note{font-size:14.5px;color:var(--muted);margin-top:14px;}
+.cta-block{margin-top:26px;}
+
+/* hero */
+.hero{
+  position:relative;overflow:hidden;padding:30px 0 46px;border-bottom:1px solid var(--line-soft);
+  background:
+    radial-gradient(48% 46% at 92% 4%,rgba(232,176,75,.22),rgba(232,176,75,0) 70%),
+    linear-gradient(180deg,#0B0C10 0%,#0F1115 100%);
+}
+.hero-kicker{display:inline-block;font-size:14.5px;font-weight:700;color:var(--amber);background:rgba(232,176,75,.10);border:1px solid rgba(232,176,75,.35);border-radius:999px;padding:5px 14px;margin:0 0 18px;}
+.hero h1{color:#fff;}
+.hero h1 .l2{display:block;color:var(--amber);font-weight:500;}
+.hero .lead{color:#C3C6CE;}
+.hero-img{margin:24px -4px 26px;}
+.hero-img img{border-radius:var(--radius-lg);border:1px solid var(--line);box-shadow:0 30px 70px rgba(0,0,0,.55);}
+@media(min-width:900px){
+  .hero{padding:64px 0 78px;}
+  .hero-grid{display:grid;grid-template-columns:1fr 450px;grid-template-areas:"hd img" "rest img";column-gap:56px;align-items:center;}
+  .hero-hd{grid-area:hd;align-self:end;}
+  .hero-rest{grid-area:rest;align-self:start;padding-top:20px;}
+  .hero-img{grid-area:img;margin:0;align-self:center;}
+}
+.hero-bullets{list-style:none;padding:0;margin:22px 0 0;}
+.hero-bullets li{position:relative;padding-left:30px;margin-bottom:13px;font-size:16.5px;color:var(--ink);}
+.hero-bullets li b{color:#fff;}
+.hero-bullets li::before{content:"";position:absolute;left:2px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--psi);}
+.hero-bullets li:nth-child(2)::before{background:var(--amber);}
+.hero-bullets li:nth-child(3)::before{background:var(--pro);}
+.hero-price{display:flex;align-items:baseline;gap:12px;margin-top:26px;}
+.hero-price b{font-family:var(--serif);font-size:38px;font-weight:600;color:#fff;line-height:1;}
+.hero-price span{font-size:15px;color:var(--muted);font-weight:600;}
+.hero-price + .cta-block{margin-top:14px;}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.pills span{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:700;color:var(--ink);background:rgba(242,239,232,.05);border:1px solid var(--line);border-radius:999px;padding:6px 14px;white-space:nowrap;}
+.pills i{width:8px;height:8px;border-radius:50%;display:inline-block;}
+
+/* kartu */
+.grid{display:grid;gap:18px;}
+@media(min-width:760px){.grid-3{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:640px){.grid-2{grid-template-columns:repeat(2,1fr);}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;}
+.sec-alt .card{background:var(--card);}
+.card p.card-quote{font-family:var(--serif);font-size:23px;font-weight:600;color:var(--amber);margin:0 0 10px;line-height:1.22;}
+.card p{font-size:16px;color:var(--muted);}
+
+/* mekanisme */
+.pilar{border-left:3px solid var(--psi);padding:4px 0 4px 18px;margin-bottom:22px;}
+.pilar:nth-child(2){border-color:var(--amber);}
+.pilar:nth-child(3){border-color:var(--pro);}
+.pilar h4{margin-bottom:4px;}
+.pilar p{font-size:16.5px;color:var(--muted);margin:0;}
+.golden{margin-top:28px;font-family:var(--serif);font-size:28px;font-weight:600;color:var(--amber);line-height:1.2;margin-bottom:6px;}
+
+/* kartu demo */
+.demo{margin-top:40px;}
+.demo-intro{text-align:center;color:var(--muted);font-size:16px;margin-bottom:16px;}
+.demo-intro b{color:var(--ink);}
+.dcard{
+  display:block;width:100%;max-width:440px;margin:0 auto;text-align:left;cursor:pointer;
+  background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 22px 0;
+  color:var(--ink);font:inherit;box-shadow:0 24px 60px rgba(0,0,0,.45);
+  transition:border-color .2s ease;
+}
+.dcard:hover{border-color:#3A404D;}
+.dcard:focus-visible{outline:3px solid var(--amber);outline-offset:4px;}
+.dcard-top{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;font-weight:700;letter-spacing:.02em;}
+.dchip{display:inline-flex;align-items:center;gap:7px;color:var(--muted);}
+.dchip i,.dlabel i{width:7px;height:7px;border-radius:50%;display:inline-block;}
+.dlabel{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-weight:600;}
+.dface{min-height:390px;padding:18px 0 20px;}
+.dface[hidden]{display:none;}
+.dhook{font-family:var(--serif);font-size:clamp(25px,5vw,29px);font-weight:600;line-height:1.2;margin:0 0 14px;color:#fff;}
+.disi{font-size:15.5px;line-height:1.65;color:#D3D5DB;margin:0 0 12px;}
+.dkonsep{font-size:13.5px;color:var(--muted);margin:0;}
+.dkonsep b{color:var(--ink);font-weight:700;}
+.dsec{font-size:12.5px;font-weight:700;letter-spacing:.02em;color:var(--muted);margin:0 0 6px;}
+.dsrc{font-weight:700;font-size:15.5px;line-height:1.4;margin:0 0 4px;color:var(--ink);}
+.dmeta{font-size:14px;color:var(--muted);margin:0 0 18px;}
+.dpoin{margin:0;}
+.pn{position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:var(--card-in);color:var(--ink);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.dpoin li{position:relative;padding-left:34px;margin-bottom:10px;font-size:15px;line-height:1.5;color:#D3D5DB;counter-increment:p;}
+.dpoin li::before{content:counter(p);position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:var(--card-in);color:var(--ink);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.djadi{background:var(--card-in);border-radius:12px;padding:14px 16px;}
+.djadi p{margin:0;font-size:15px;color:#D3D5DB;line-height:1.55;}
+.djadi .dsec{color:var(--amber);margin-bottom:4px;}
+.dfoot{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding:14px 0 16px;font-size:13.5px;font-weight:700;color:var(--amber);}
+.dfoot svg{width:18px;height:18px;flex-shrink:0;}
+.demo-note{text-align:center;font-size:14px;color:var(--muted-light);margin-top:14px;}
+
+/* langkah */
+.steps{margin-top:34px;}
+.step-card h3{font-size:22px;margin:14px 0 8px;}
+.step-card p{color:var(--muted);font-size:16px;}
+.num{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:var(--card-in);border:1px solid var(--line);font-weight:800;font-size:16px;color:var(--amber);}
+
+/* fitur */
+.feat{display:grid;gap:24px;padding:42px 0;border-top:1px solid var(--line);}
+.narrow + .feat{border-top:none;}
+@media(min-width:860px){
+  .feat{grid-template-columns:1fr 1.35fr;gap:52px;align-items:center;}
+  .feat .feat-img{order:2;}
+  .feat.flip{grid-template-columns:1.35fr 1fr;}
+  .feat.flip .feat-img{order:1;}
+  .feat.flip .feat-copy{order:2;}
+}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--ink);background:var(--card-in);border:1px solid var(--line);border-radius:999px;padding:4px 13px;margin:0 0 14px;}
+.tag i{width:8px;height:8px;border-radius:50%;display:inline-block;}
+.feat-copy h3{margin-bottom:12px;}
+.feat-copy p{color:var(--muted);font-size:16.5px;}
+.shot{border:1px solid var(--line);border-radius:16px;background:var(--bg);box-shadow:0 24px 60px rgba(0,0,0,.5);}
+.shot-r{max-width:300px;width:100%;margin-left:auto;margin-right:auto;}
+@media(min-width:860px){.feat .shot-r{max-width:100%;}}
+[data-zoom]{cursor:zoom-in;}
+.m-only{display:inline;}
+@media(min-width:700px){.m-only{display:none;}}
+.feat-pair{border-top:1px solid var(--line);padding-top:42px;}
+.feat-pair .card h3{font-size:22px;margin:0 0 10px;}
+
+/* topik */
+.topik{margin-top:44px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:24px 20px;}
+@media(min-width:640px){.topik{padding:30px 32px;}}
+.topik h3{font-size:23px;margin-bottom:6px;}
+.topik > p{color:var(--muted);font-size:15.5px;}
+.topik-row{display:flex;gap:16px;align-items:flex-start;padding:15px 0;border-top:1px solid var(--line-soft);}
+.topik-row:first-of-type{border-top:none;}
+.topik-row .dot{flex:0 0 12px;height:12px;border-radius:50%;margin-top:7px;}
+.topik-row b{display:block;color:var(--ink);font-size:16.5px;line-height:1.3;}
+.topik-row div span{display:block;font-size:15.5px;line-height:1.5;color:var(--muted);}
+
+/* jelas dari awal */
+.clear-card h3{margin-bottom:10px;}
+.clear-card p{color:var(--muted);font-size:16.5px;}
+.clear-yes{border-top:3px solid var(--pro);}
+.clear-no{border-top:3px solid var(--bahaya);}
+.fitlist{list-style:none;padding:0;margin:0;}
+.fitlist li{position:relative;padding-left:30px;margin-bottom:13px;font-size:16.5px;}
+.fitlist li::before{position:absolute;left:0;top:0;font-weight:800;font-size:17px;}
+.fit-yes li::before{content:"✓";color:var(--pro);}
+.fit-no li::before{content:"✕";color:var(--bahaya);}
+
+/* tabel */
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;border:1px solid var(--line);border-radius:var(--radius);}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:15.5px;background:var(--card);}
+th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:none;}
+thead th{font-size:14px;font-weight:700;color:var(--muted);border-bottom:1px solid var(--line);}
+thead th.hl{color:var(--amber);}
+tbody td{color:var(--muted);}
+tbody td.hl{font-weight:700;color:#fff;background:rgba(232,176,75,.08);}
+tbody th{font-weight:700;color:var(--ink);width:19%;}
+
+/* testimoni */
+.testi-grid{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 20px 6px;margin:0 -20px;}
+.testi-grid::-webkit-scrollbar{display:none;}
+.testi-grid img{flex:0 0 78%;scroll-snap-align:center;width:100%;height:auto;border:1px solid rgba(255,255,255,.10);border-radius:16px;box-shadow:0 14px 34px rgba(0,0,0,.4);}
+.testi-dots{display:flex;justify-content:center;gap:8px;margin-top:16px;}
+.testi-dots button{width:8px;height:8px;padding:0;border:none;border-radius:50%;background:rgba(242,239,232,.25);cursor:pointer;transition:background .2s ease,width .2s ease;}
+.testi-dots button.on{background:var(--amber);width:22px;border-radius:5px;}
+.testi-dots button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+@media(min-width:700px){
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;overflow:visible;padding:0;margin:0;}
+  .testi-grid img{flex:none;}
+  .testi-dots{display:none;}
+}
+
+/* harga */
+.price-lead{max-width:var(--maxw-text);margin:12px auto 0;}
+.price-card{background:var(--card);border:1px solid rgba(232,176,75,.35);border-radius:var(--radius-lg);padding:26px 22px;max-width:640px;margin:0 auto;box-shadow:0 24px 60px rgba(0,0,0,.4);}
+@media(min-width:640px){.price-card{padding:36px;}}
+.price-card h3{font-size:clamp(22px,2.6vw,25px);}
+.incl{list-style:none;padding:0;margin:0;}
+.incl li{position:relative;padding:11px 0 11px 30px;border-bottom:1px solid var(--line-soft);font-size:15.5px;}
+.incl li::before{content:"✓";position:absolute;left:2px;top:10px;color:var(--amber);font-weight:800;}
+.price-now{text-align:center;background:rgba(232,176,75,.08);border:1px solid rgba(232,176,75,.35);border-radius:var(--radius);padding:22px;margin:24px 0 0;}
+.price-now small{display:block;font-size:15px;font-weight:600;color:var(--muted);}
+.price-now .amt{font-family:var(--serif);font-size:clamp(42px,9vw,56px);font-weight:600;color:var(--amber);line-height:1.05;}
+.price-now .sub{font-size:15px;color:var(--muted);margin-top:4px;}
+.price-cta{text-align:center;margin-top:24px;}
+.price-cta .btn{width:100%;}
+
+/* akses */
+.akses-steps{margin-top:30px;}
+.akses-steps .card h4{margin:12px 0 6px;}
+.akses-steps .card p{font-size:16px;color:var(--muted);}
+.akses-steps .warn{color:var(--amber);font-weight:700;}
+.url{font-weight:700;color:var(--amber);white-space:nowrap;}
+
+/* faq */
+.faq-key{background:var(--card);border:2px solid var(--amber);border-radius:var(--radius);padding:22px;margin-bottom:16px;}
+.faq-key h3{font-size:clamp(20px,3.2vw,24px);margin-bottom:12px;}
+.faq-key p{font-size:17px;color:var(--muted);margin:0 0 10px;}
+.faq-key ol{margin:0;padding:0 0 0 24px;font-size:clamp(17px,2.6vw,18.5px);line-height:1.5;color:var(--ink);}
+.faq-key li{margin-bottom:10px;padding-left:4px;}
+.faq-key li:last-child{margin-bottom:0;}
+.faq-key li::marker{font-weight:800;color:var(--amber);}
+.faq-key b{color:#fff;}
+.faq{border-top:1px solid var(--line);margin-top:30px;}
+.faq details{border-bottom:1px solid var(--line);}
+.faq summary{cursor:pointer;padding:18px 34px 18px 0;position:relative;font-weight:700;font-size:17px;color:#fff;list-style:none;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"";position:absolute;right:6px;top:26px;width:9px;height:9px;border-right:2px solid var(--amber);border-bottom:2px solid var(--amber);transform:rotate(45deg);transition:transform .18s ease;}
+.faq details[open] summary::after{transform:rotate(-135deg);top:28px;}
+.faq summary:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+.faq .ans{padding:0 0 20px;color:var(--muted);font-size:16.5px;}
+.faq .ans b{color:var(--ink);}
+
+/* penutup */
+.sec-deep{background:radial-gradient(70% 60% at 50% 115%,rgba(232,176,75,.18),rgba(232,176,75,0) 70%),var(--deep);}
+.sec-deep h2{color:#fff;}
+.sec-deep .lead{color:#B9BCC5;}
+.closing-line{font-family:var(--serif);font-size:28px;font-weight:600;color:var(--amber);margin-top:24px;line-height:1.2;}
+
+/* footer */
+.site-foot{background:var(--deep);border-top:1px solid var(--line-soft);padding:32px 0;text-align:center;}
+.site-foot .logo{margin-bottom:12px;}
+.site-foot small{display:block;font-size:13.5px;color:var(--muted-light);}
+
+/* sticky bar HP */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#13151A;border-top:1px solid var(--line);padding:10px 16px calc(12px + env(safe-area-inset-bottom));box-shadow:0 -6px 20px rgba(0,0,0,.45);display:flex;align-items:center;gap:12px;transform:translateY(115%);transition:transform .25s ease;}
+.sticky-cta.on{transform:translateY(0);}
+.sticky-cta .sp{flex:1;min-width:0;}
+.sticky-cta .sp b{display:block;font-size:19px;color:#fff;line-height:1.2;font-family:var(--serif);font-weight:600;}
+.sticky-cta .sp small{font-size:12.5px;color:var(--muted);}
+.sticky-cta .btn{width:auto;padding:12px 20px;font-size:16.5px;flex-shrink:0;box-shadow:0 3px 0 var(--amber-deep);}
+@media(min-width:900px){.sticky-cta{display:none;}}
+body.has-sticky{padding-bottom:84px;}
+@media(min-width:900px){body.has-sticky{padding-bottom:0;}}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(8,9,12,.95);display:none;align-items:center;justify-content:center;padding:56px 12px 20px;}
+.lb.on{display:flex;}
+.lb-inner{max-width:1100px;width:100%;max-height:100%;overflow:auto;-webkit-overflow-scrolling:touch;border-radius:10px;}
+.lb img{width:auto;max-width:100%;max-height:84vh;margin:0 auto;border-radius:10px;}
+.lb-close{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;background:var(--ink);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.lb-close:focus-visible{outline:3px solid var(--amber);outline-offset:2px;}
+.lb-close svg{width:18px;height:18px;}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <div class="logo" aria-label="Deep Smart"><svg class="logo-mark" viewBox="10 6 48 52" aria-hidden="true"><path fill="#F2EFE8" fill-rule="evenodd" d="M12 8h20c14.4 0 24 9.6 24 24s-9.6 24-24 24H12zM23 18.5h8.5c8.3 0 13.5 5.4 13.5 13.5s-5.2 13.5-13.5 13.5H23z"/><circle cx="33" cy="32" r="5.5" fill="#E8B04B"/></svg><span class="logo-text">Deep Smart</span></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-hd">
+        <p class="hero-kicker">Untuk kamu yang hobi scroll</p>
+        <h1>Bukan kurang pinter. <span class="l2">Cuma belum ada yang ngasih tahu.</span></h1>
+      </div>
+      <div class="hero-img">
+        <img src="img/hero-mockup.webp" alt="Deep Smart, app berisi ide dari buku terbaik dunia yang diringkas kartu per kartu, ditampilkan di HP dengan kartu Orang paling pinter itu guru paling buruk" width="980" height="1232" fetchpriority="high">
+      </div>
+      <div class="hero-rest">
+        <p class="lead">Deep Smart adalah app di HP yang scroll-nya kayak TikTok, tapi tiap geseran berisi satu ide dari buku, riset, dan pemikir beneran. Psikologi, filsafat, produktivitas, dan bisnis, diringkas jadi kartu yang selesai dibaca kurang dari semenit, lengkap dengan sumbernya.</p>
+        <ul class="hero-bullets">
+          <li><b>Gak sanggup baca buku 400 halaman?</b> Satu kartu, satu ide. Geser, kartu berikutnya.</li>
+          <li><b>Takut isinya cuma "katanya"?</b> Tiap kartu menyebut nama konsep, judul buku atau riset, penulis, tahun, dan seberapa kuat buktinya.</li>
+          <li><b>Udah baca, besok lupa?</b> Uji Jelasin Ulang: tulis pakai kata-katamu sendiri, lalu cocokkan dengan 3 poin kuncinya.</li>
+        </ul>
+        <div class="hero-price"><b>Rp127.000</b><span>sekali bayar</span></div>
+        <div class="cta-block">
+          <a class="btn" href="checkout.html">Ambil Akses Deep Smart → Rp127.000</a>
+          <p class="btn-note">Dibuka dari browser HP, tablet, atau laptop. Tanpa install, tanpa akun.</p>
+        </div>
+        <div class="pills">
+          <span><i style="background:var(--psi)"></i>Segudang ide</span>
+          <span><i style="background:var(--fil)"></i>4 topik</span>
+          <span><i style="background:var(--amber)"></i>Tanpa langganan</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADEGAN -->
+<section>
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:34px;">
+      <h2>Baca tiga ini. Kalau ada satu yang kejadian minggu ini, kamu di tempat yang benar.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <p class="card-quote">“Tadi aku nonton apa, ya?”</p>
+        <p>Jam satu malam. Sudah satu setengah jam scroll, HP mulai panas. Kamu coba ingat satu hal yang tadi kamu tonton, dan gak ada satu pun yang bisa kamu ceritakan ulang.</p>
+      </div>
+      <div class="card">
+        <p class="card-quote">“Oh, itu ada namanya, ya?”</p>
+        <p>Temanmu menjelaskan satu konsep di tongkrongan atau rapat, rapi dan gampang dimengerti. Semua orang nengok ke dia. Kamu cuma ngangguk, dan diam-diam ngerasa ketinggalan.</p>
+      </div>
+      <div class="card">
+        <p class="card-quote">“Nanti aku baca.”</p>
+        <p>Buku yang kamu beli tahun lalu masih di meja. Pembatasnya di halaman 43. Tiap lihat sampulnya kamu janji mulai minggu depan, dan minggu depan gak pernah datang.</p>
+      </div>
+    </div>
+    <p class="narrow lead center" style="margin-top:30px;">Tiga adegan ini kelihatan beda. Akarnya sama, dan bukan karena kamu kurang pinter atau malas belajar.</p>
+  </div>
+</section>
+
+<!-- MEKANISME + KARTU DEMO -->
+<section class="sec-alt">
+  <div class="wrap">
+    <div class="narrow">
+      <h2>Kamu gak malas belajar. Feed-mu memang gak dibikin buat diingat.</h2>
+      <p style="margin-top:18px;">Feed yang kamu buka tiap hari dirancang supaya kamu terus geser, bukan supaya kamu ingat. Satu video belum selesai dicerna, video berikutnya sudah main. Buku sebaliknya: isinya bagus, tapi butuh berjam-jam dan kepala yang segar, dua hal yang jarang ada di sela kerja atau kuliah.</p>
+      <p>Deep Smart mengambil cara geser yang bikin kamu betah, lalu mengisi tiap geserannya dengan ide yang layak diingat.</p>
+      <div style="margin-top:32px;">
+        <div class="pilar"><h4>Satu ide, satu kartu.</h4><p>Hook satu kalimat, penjelasan beberapa kalimat, lalu satu kalimat "jadi apa buat kamu". Selesai, geser.</p></div>
+        <div class="pilar"><h4>Selalu ada sumbernya.</h4><p>Nama konsep, judul buku atau riset, penulis, dan tahunnya. Ditambah label Kuat, Sedang, atau Diperdebatkan, supaya kamu tahu seberapa kokoh buktinya.</p></div>
+        <div class="pilar"><h4>Diuji, bukan cuma dibaca.</h4><p>Tulis ulang pakai kata-katamu sendiri, lalu cocokkan dengan 3 poin kuncinya. Kalau sudah bisa kamu jelaskan, berarti idenya sudah jadi milikmu.</p></div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <p class="demo-intro"><b>Ini salah satu kartunya.</b> Coba ketuk.</p>
+      <button type="button" class="dcard" id="demoCard" aria-pressed="false" aria-label="Kartu contoh Deep Smart. Ketuk untuk melihat sumber dan poin kunci.">
+        <span class="dcard-top">
+          <span class="dchip"><i style="background:var(--psi)"></i>PSIKOLOGI</span>
+          <span class="dlabel"><i style="background:var(--pro)"></i>Kuat</span>
+        </span>
+        <span class="dface" id="faceDepan" style="display:block;">
+          <span class="dhook" style="display:block;">Orang paling pinter itu guru paling buruk.</span>
+          <span class="disi" style="display:block;">Tahun 1990, Elizabeth Newton di Stanford meminta satu orang mengetuk ritme lagu terkenal di meja, lalu orang lain menebak judulnya. Pengetuk yakin sekitar separuh lagu bakal tertebak. Kenyataannya, hanya 3 dari 120 lagu, sekitar 2,5%. Di kepala pengetuk lagunya terdengar utuh, sementara pendengar cuma mendengar bunyi tok tok tok. Begitu kita tahu sesuatu, kita sulit membayangkan rasanya belum tahu.</span>
+          <span class="dkonsep" style="display:block;">Konsep: <b>Curse of knowledge</b></span>
+        </span>
+        <span class="dface" id="faceBelakang" hidden>
+          <span class="dsec" style="display:block;">Sumber</span>
+          <span class="dsrc" style="display:block;">Overconfidence in the communication of intent: heard and unheard melodies (disertasi)</span>
+          <span class="dmeta" style="display:block;">Elizabeth Newton, 1990, riset</span>
+          <span class="dsec" style="display:block;">Poin kunci</span>
+          <span class="dpoin" style="display:block;">
+            <span style="display:block;position:relative;padding-left:34px;margin-bottom:10px;font-size:15px;line-height:1.5;color:#D3D5DB;"><span class="pn">1</span>Pengetuk menebak 50% lagu bakal tertebak, kenyataannya hanya sekitar 2,5%.</span>
+            <span style="display:block;position:relative;padding-left:34px;margin-bottom:10px;font-size:15px;line-height:1.5;color:#D3D5DB;"><span class="pn">2</span>Orang yang sudah tahu sulit membayangkan sudut pandang orang yang belum tahu.</span>
+            <span style="display:block;position:relative;padding-left:34px;margin-bottom:0;font-size:15px;line-height:1.5;color:#D3D5DB;"><span class="pn">3</span>Obatnya: contoh konkret, cerita, dan mulai dari dasar.</span>
+          </span>
+          <span class="djadi" style="display:block;margin-top:18px;">
+            <span class="dsec" style="display:block;">JADI APA BUAT KAMU</span>
+            <span style="display:block;font-size:15px;color:#D3D5DB;line-height:1.55;">Saat menjelaskan sesuatu, mulai dari hal paling dasar dan pakai contoh, karena kamu sudah lupa rasanya belum paham.</span>
+          </span>
+        </span>
+        <span class="dfoot">
+          <span id="demoHint">Ketuk untuk lihat sumber dan poin kunci</span>
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10a6 6 0 0 1 10.5-4M16 10a6 6 0 0 1-10.5 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M14.5 2.5v3.5H11M5.5 17.5V14H9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </button>
+      <p class="demo-note" style="margin-bottom:34px;">Kartu ini persis seperti yang muncul di dalam app.</p>
+    </div>
+
+    <div class="narrow center">
+      <p class="golden">Scroll yang sama. Isi yang nempel.</p>
+      <p style="color:var(--muted);">Bukan disuruh baca lebih banyak. Cukup satu ide yang benar-benar kamu pahami.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CARA MULAI -->
+<section>
+  <div class="wrap">
+    <div class="narrow center">
+      <h2>Kamu gak perlu cari bacaan. App-nya yang nyodorin.</h2>
+    </div>
+    <div class="grid grid-3 steps">
+      <div class="card step-card">
+        <span class="num">1</span>
+        <h3>Masukkan kode akses</h3>
+        <p>Kodenya ada di Panduan Akses di emailmu. Cukup sekali, setelah itu tersimpan di perangkatmu.</p>
+      </div>
+      <div class="card step-card">
+        <span class="num">2</span>
+        <h3>Pilih topik, atau biarkan Semua</h3>
+        <p>Psikologi, filsafat, produktivitas, atau bisnis. Tiap topik punya urutan acaknya sendiri.</p>
+      </div>
+      <div class="card step-card">
+        <span class="num">3</span>
+        <h3>Geser ke atas</h3>
+        <p>Satu kartu satu layar. Setelah 10 kartu ada rekap singkat, mau lanjut atau cukup dulu, kamu yang pilih.</p>
+      </div>
+    </div>
+    <div class="cta-block center" style="margin-top:36px;">
+      <a class="btn" href="checkout.html">Ambil Akses Deep Smart → Rp127.000</a>
+    </div>
+  </div>
+</section>
+
+<!-- FITUR -->
+<section class="sec-alt">
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:6px;">
+      <h2>Yang kamu buka tiap hari</h2>
+    </div>
+    <div class="feat">
+      <div class="feat-copy">
+        <p class="tag"><i style="background:var(--fil)"></i>Feed Acak</p>
+        <h3>“Hidup tidak pendek. Kita yang membuangnya.”</h3>
+        <p>Kartu muncul acak dan gak berulang sampai semuanya pernah tampil. Paling banyak dua kartu beruntun dari topik yang sama, jadi feed-mu gak monoton. Di laptop, sumber dan poin kunci selalu terbuka di samping kartu.</p>
+      </div>
+      <div class="feat-img">
+        <picture><source media="(min-width:860px)" srcset="img/feed-d.webp" width="1400" height="868"><img class="shot shot-r" data-zoom src="img/feed.webp" alt="Feed Deep Smart topik Filsafat menampilkan kartu Hidup tidak pendek, kita yang membuangnya, dari esai De Brevitate Vitae karya Seneca, dengan label Kuat" width="728" height="1568" loading="lazy"></picture>
+      </div>
+    </div>
+    <div class="feat flip">
+      <div class="feat-copy">
+        <p class="tag"><i style="background:var(--amber)"></i>Uji Jelasin Ulang</p>
+        <h3>“Sudah bisa menjelaskannya?”</h3>
+        <p>Pilih kartu yang sudah kamu simpan, tulis penjelasanmu sendiri, lalu cocokkan dengan 3 poin kuncinya. Tandai Paham, atau Ulangi nanti. Tanpa nilai dan tanpa AI, kamu sendiri yang menilai.</p>
+      </div>
+      <div class="feat-img">
+        <picture><source media="(min-width:860px)" srcset="img/uji-d.webp" width="1400" height="868"><img class="shot shot-r" data-zoom src="img/uji.webp" alt="Layar Uji Jelasin Ulang: penjelasan pengguna di atas, lalu 3 poin kunci untuk dicocokkan, tombol Paham dan Ulangi nanti" width="728" height="1568" loading="lazy"></picture>
+      </div>
+    </div>
+    <div class="grid grid-2 feat-pair">
+      <div class="card">
+        <p class="tag"><i style="background:var(--pro)"></i>Tersimpan</p>
+        <h3>Ide yang mau kamu ingat, di satu tempat.</h3>
+        <p>Tekan simpan, kartu masuk Tersimpan. Cari lagi kapan saja lewat kata di hook, isi, konsep, atau sumbernya.</p>
+      </div>
+      <div class="card">
+        <p class="tag"><i style="background:var(--bis)"></i>Ide terbaru</p>
+        <h3>Isinya terus bertambah.</h3>
+        <p>Ide terbaru terus ditambahkan ke dalam app, langsung muncul di feed-mu dengan label Baru, tanpa biaya tambahan.</p>
+      </div>
+    </div>
+
+    <div class="topik narrow">
+      <h3>Empat topik di dalamnya</h3>
+      <p>Pilih satu, atau biarkan semuanya bercampur.</p>
+      <div class="topik-row"><span class="dot" style="background:var(--psi)"></span><div><b>Psikologi</b><span>Kenapa kita salah menilai diri sendiri, gampang terbujuk, dan susah menjelaskan hal yang kita kira sudah paham.</span></div></div>
+      <div class="topik-row"><span class="dot" style="background:var(--fil)"></span><div><b>Filsafat</b><span>Pemikiran dari Seneca sampai sekarang tentang waktu, pilihan, dan cara menjalani hidup.</span></div></div>
+      <div class="topik-row"><span class="dot" style="background:var(--pro)"></span><div><b>Produktivitas</b><span>Kenapa kerjaan molor, fokus gampang buyar, dan kebiasaan baik susah bertahan.</span></div></div>
+      <div class="topik-row"><span class="dot" style="background:var(--bis)"></span><div><b>Bisnis</b><span>Cara orang menentukan harga, mengambil keputusan, dan menimbang untung rugi.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- JELAS DARI AWAL -->
+<section>
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:30px;">
+      <h2>Supaya jelas dari awal</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="card clear-card clear-yes">
+        <h3>Deep Smart bisa</h3>
+        <p>Menyajikan ide dari buku, riset, dan pemikir satu per satu dalam urutan acak, lengkap dengan sumber dan label buktinya, menyimpan ide yang kamu pilih, dan menguji apakah kamu bisa menjelaskannya ulang.</p>
+      </div>
+      <div class="card clear-card clear-no">
+        <h3>Deep Smart bukan</h3>
+        <p>Pengganti membaca buku utuh, kursus, atau AI yang bisa ditanya. Deep Smart tidak menjanjikan kamu jadi pintar atau IQ naik. Yang diberikan adalah ide yang jelas sumbernya, dalam takaran yang bisa kamu cerna.</p>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top:34px;">
+      <div>
+        <h3 style="margin-bottom:16px;">Cocok kalau</h3>
+        <ul class="fitlist fit-yes">
+          <li>Kamu scroll lama tiap hari dan pengen waktunya ada hasilnya.</li>
+          <li>Kamu suka konten "ternyata ada namanya", tapi pengen tahu sumber aslinya.</li>
+          <li>Kamu punya buku yang belum selesai dibaca, dan jujur, mungkin gak akan selesai.</li>
+          <li>Kamu pengen punya bahan obrolan yang lebih berbobot di tongkrongan, kelas, atau kantor.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="margin-bottom:16px;">Bukan untuk kamu kalau</h3>
+        <ul class="fitlist fit-no">
+          <li>Kamu cari ringkasan lengkap per buku, bab demi bab.</li>
+          <li>Kamu cari kelas, sertifikat, atau mentor.</li>
+          <li>Kamu mau tanya jawab dengan AI.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERBANDINGAN -->
+<section class="sec-alt">
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:30px;">
+      <h2>Kenapa Deep Smart, bukan cara yang sekarang.</h2>
+    </div>
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th></th><th>TikTok atau Reels</th><th>Beli buku</th><th>App ringkasan berlangganan</th><th class="hl">Deep Smart</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Waktu per ide</th><td>Cepat, tapi besok lupa</td><td>Berjam-jam per buku</td><td>Sekitar 15 menit per buku</td><td class="hl">Satu kartu, kurang dari semenit</td></tr>
+          <tr><th>Sumbernya</th><td>Jarang disebut</td><td>Jelas</td><td>Jelas</td><td class="hl">Di tiap kartu, plus label bukti</td></tr>
+          <tr><th>Titik berhenti</th><td>Gak ada ujungnya</td><td>Akhir bab</td><td>Akhir ringkasan</td><td class="hl">Rekap tiap 10 kartu</td></tr>
+          <tr><th>Menguji paham</th><td>Tidak ada</td><td>Tidak ada</td><td>Tergantung app</td><td class="hl">Uji Jelasin Ulang</td></tr>
+          <tr><th>Bahasa</th><td>Campur</td><td>Tergantung buku</td><td>Umumnya Inggris</td><td class="hl">Indonesia</td></tr>
+          <tr><th>Biaya</th><td>Gratis, dibayar pakai waktu</td><td>Per judul</td><td>Langganan, umumnya dolar</td><td class="hl">Rp127.000, sekali bayar</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section>
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:28px;">
+      <h2>Cerita dari yang sudah pakai.</h2>
+      <p class="lead" style="margin-top:12px;"><span class="m-only">Geser untuk melihat cerita lainnya. </span>Nomor disensor untuk menjaga privasi.</p>
+    </div>
+    <div class="testi-grid">
+      <img src="img/testi1.webp" alt="Screenshot WhatsApp: mahasiswa ditanya penguji sidang kenapa memilih metodenya, teringat kartu ilusi paham, menjelaskan dari awal dengan jernih, lalu lulus dengan revisi minor" width="392" height="784" loading="lazy">
+      <img src="img/testi2.webp" alt="Screenshot WhatsApp: karyawan yang tiap sore disodori pekerjaan seniornya teringat satu kartu, lalu untuk pertama kalinya berani menolak dengan sopan" width="392" height="784" loading="lazy">
+      <img src="img/testi3.webp" alt="Screenshot WhatsApp: saat teman-temannya berdebat di warkop, pengguna menjelaskan sunk cost fallacy beserta sumbernya dan dipanggil profesor semalaman, padahal baru membaca satu kartu" width="392" height="784" loading="lazy">
+    </div>
+    <div class="testi-dots" id="testiDots" aria-hidden="true">
+      <button type="button" class="on" data-i="0" aria-label="Cerita 1"></button>
+      <button type="button" data-i="1" aria-label="Cerita 2"></button>
+      <button type="button" data-i="2" aria-label="Cerita 3"></button>
+    </div>
+  </div>
+</section>
+
+<!-- HARGA -->
+<section class="sec-alt">
+  <div class="wrap">
+    <div class="narrow center" style="margin-bottom:28px;">
+      <h2>Sekali bayar. Bukan tiap bulan.</h2>
+      <p class="lead price-lead">App ringkasan buku dan feed ide dari luar negeri umumnya berbahasa Inggris dan berlangganan dolar, totalnya bisa lebih dari Rp1 juta per tahun. Deep Smart berbahasa Indonesia, dibayar sekali dalam rupiah.</p>
+    </div>
+    <div class="price-card">
+      <h3 class="center" style="margin-bottom:18px;">Yang kamu dapat begitu masuk</h3>
+      <ul class="incl">
+        <li>Feed acak berisi segudang kartu ide dari buku, riset, dan pemikir</li>
+        <li>Empat topik: psikologi, filsafat, produktivitas, dan bisnis</li>
+        <li>Nama konsep, sumber, dan label tingkat keyakinan di tiap kartu</li>
+        <li>Uji Jelasin Ulang dengan 3 poin kunci di tiap kartu</li>
+        <li>Tersimpan, lengkap dengan pencarian</li>
+        <li>Ide terbaru yang terus ditambahkan, ditandai label Baru</li>
+      </ul>
+      <div class="price-now">
+        <small>Harga hari ini</small>
+        <div class="amt">Rp127.000</div>
+        <p class="sub">Sekali bayar, tanpa tagihan bulanan.</p>
+      </div>
+      <div class="price-cta">
+        <a class="btn" href="checkout.html">Ambil Akses Deep Smart → Rp127.000</a>
+        <p class="btn-note">Panduan Akses berisi kode masuk dikirim ke email yang kamu pakai saat order.</p>
+      </div>
+    </div>
+    <div class="narrow center" style="margin-top:58px;">
+      <h3>Dari bayar sampai baca, tiga langkah.</h3>
+    </div>
+    <div class="grid grid-3 akses-steps">
+      <div class="card">
+        <span class="num">1</span>
+        <h4>Selesaikan pembayaran</h4>
+        <p>Bisa pakai QRIS, transfer bank, atau e-wallet.</p>
+      </div>
+      <div class="card">
+        <span class="num">2</span>
+        <h4>Buka email, klik link biru</h4>
+        <p>Klik link biru yang diawali <b>drive.google.com</b>. <span class="warn">Bukan tombol "Unduh Produk".</span> Kalau belum ada di kotak masuk, cek folder Spam atau Promosi.</p>
+      </div>
+      <div class="card">
+        <span class="num">3</span>
+        <h4>Masukkan kode, lalu geser</h4>
+        <p>Buka <span class="url">deepsmart.netlify.app</span>, masukkan kode, lalu mulai dari kartu pertamamu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <div class="narrow">
+      <h2 class="center" style="margin-bottom:28px;">Pertanyaan yang sering masuk</h2>
+      <div class="faq-key">
+        <h3>Aku sudah bayar. Kodenya di mana?</h3>
+        <ol>
+          <li>Buka email pembelianmu.</li>
+          <li>Klik <b>link biru yang diawali drive.google.com</b>.</li>
+          <li>PDF Panduan Akses terbuka. Kodenya ada di dalamnya.</li>
+        </ol>
+      </div>
+      <div class="faq-key">
+        <h3>Aku sudah klik "Unduh Produk", tapi gak ada kodenya.</h3>
+        <p>Tenang, kamu cuma salah klik. Balik ke email yang sama, lalu:</p>
+        <ol>
+          <li>Cari <b>link biru yang diawali drive.google.com</b>. Letaknya di atas tombol Unduh Produk.</li>
+          <li>Klik link itu, bukan tombolnya.</li>
+          <li>Kodenya ada di PDF Panduan Akses yang terbuka.</li>
+        </ol>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Kodenya ditolak.</summary>
+          <div class="ans">Pastikan kamu membuka <span class="url">deepsmart.netlify.app</span>, lalu ketik atau salin kode dari Panduan Akses apa adanya. Huruf besar kecil dan spasi yang ikut tersalin gak masalah.</div>
+        </details>
+        <details>
+          <summary>Ini app yang harus di-install?</summary>
+          <div class="ans">Tidak. Deep Smart dibuka lewat browser di HP, tablet, atau laptop. Supaya cepat dibuka, simpan ke layar utama HP seperti app biasa.</div>
+        </details>
+        <details>
+          <summary>Perlu bikin akun atau password?</summary>
+          <div class="ans">Tidak. Cukup satu kode akses. Ganti HP atau browser, masukkan kode yang sama.</div>
+        </details>
+        <details>
+          <summary>Kalau ganti HP, kartu yang kusimpan ikut?</summary>
+          <div class="ans">Bisa. Simpan cadangan dari Pengaturan, masuk dengan kode yang sama di HP baru, lalu pulihkan dari cadangan.</div>
+        </details>
+        <details>
+          <summary>Sumbernya bisa dipercaya?</summary>
+          <div class="ans">Tiap kartu mencantumkan judul buku atau riset, penulis, dan tahunnya, jadi bisa kamu cek sendiri. Tiap kartu juga punya label Kuat, Sedang, atau Diperdebatkan. Ide yang masih diperdebatkan disebut terang-terangan di kartunya.</div>
+        </details>
+        <details>
+          <summary>Kartunya bisa habis?</summary>
+          <div class="ans">Kartu tampil acak tanpa pengulangan sampai semuanya pernah muncul, lalu dikocok ulang. Ide terbaru juga terus ditambahkan dan muncul paling depan dengan label Baru.</div>
+        </details>
+        <details>
+          <summary>Semuanya bahasa Indonesia?</summary>
+          <div class="ans">Ya. Nama konsepnya tetap ditulis dengan istilah aslinya, seperti curse of knowledge, supaya gampang kamu cari lebih jauh kalau penasaran.</div>
+        </details>
+        <details>
+          <summary>Bedanya apa dengan nonton konten psikologi gratis?</summary>
+          <div class="ans">Di Deep Smart, tiap ide punya sumber dan label bukti, gak ada video berikutnya yang otomatis main, ada rekap tiap 10 kartu, dan ada Uji Jelasin Ulang untuk memastikan idenya nempel.</div>
+        </details>
+        <details>
+          <summary>Butuh waktu berapa lama sehari?</summary>
+          <div class="ans">Satu kartu selesai dibaca kurang dari semenit. Setelah 10 kartu ada rekap singkat, dan kamu yang memutuskan mau lanjut atau cukup dulu.</div>
+        </details>
+        <details>
+          <summary>Ada biaya bulanan?</summary>
+          <div class="ans">Tidak ada. Sekali bayar Rp127.000.</div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PENUTUP -->
+<section class="sec-deep">
+  <div class="wrap">
+    <div class="narrow center">
+      <h2>Malam ini cukup satu kartu.</h2>
+      <p class="lead" style="margin-top:20px;">Kamu sudah coba menyimpan video, beli buku, sampai janji ke diri sendiri buat mulai baca. Yang belum pernah dicoba: scroll yang tiap geserannya meninggalkan sesuatu di kepala.</p>
+      <p class="closing-line">Kartu pertamamu, kurang dari semenit.</p>
+      <div class="cta-block">
+        <a class="btn" href="checkout.html">Ambil Akses Deep Smart → Rp127.000</a>
+        <p class="btn-note">Dibuka dari browser HP, tablet, atau laptop. Tanpa install, tanpa akun.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="logo" aria-label="Deep Smart"><svg class="logo-mark" viewBox="10 6 48 52" aria-hidden="true"><path fill="#F2EFE8" fill-rule="evenodd" d="M12 8h20c14.4 0 24 9.6 24 24s-9.6 24-24 24H12zM23 18.5h8.5c8.3 0 13.5 5.4 13.5 13.5s-5.2 13.5-13.5 13.5H23z"/><circle cx="33" cy="32" r="5.5" fill="#E8B04B"/></svg><span class="logo-text">Deep Smart</span></div>
+    <small>© 2026 Deep Smart. Semua hak dilindungi.</small>
+  </div>
+</footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <div class="sp">
+    <b>Rp127.000</b>
+    <small>Sekali bayar, tanpa install</small>
+  </div>
+  <a class="btn" href="checkout.html">Ambil Akses</a>
+</div>
+
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Tampilan Deep Smart diperbesar">
+  <button type="button" class="lb-close" id="lbClose" aria-label="Tutup gambar">
+    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" stroke="#0F1115" stroke-width="1.8" stroke-linecap="round"/></svg>
+  </button>
+  <div class="lb-inner"><img id="lbImg" src="" alt=""></div>
+</div>
+
+<script>
+(function(){
+  var bar=document.getElementById('stickyCta');
+  var hero=document.querySelector('.hero');
+  if(!bar||!hero)return;
+  document.body.classList.add('has-sticky');
+  function check(){bar.classList.toggle('on',hero.getBoundingClientRect().bottom<0);}
+  check();
+  window.addEventListener('scroll',check,{passive:true});
+  window.addEventListener('resize',check);
+})();
+(function(){
+  var card=document.getElementById('demoCard');
+  var depan=document.getElementById('faceDepan');
+  var belakang=document.getElementById('faceBelakang');
+  var hint=document.getElementById('demoHint');
+  if(!card)return;
+  var balik=false;
+  card.addEventListener('click',function(){
+    balik=!balik;
+    depan.hidden=balik;depan.style.display=balik?'none':'block';
+    belakang.hidden=!balik;belakang.style.display=balik?'block':'none';
+    card.setAttribute('aria-pressed',balik?'true':'false');
+    hint.textContent=balik?'Ketuk untuk kembali ke kartu':'Ketuk untuk lihat sumber dan poin kunci';
+  });
+})();
+(function(){
+  var track=document.querySelector('.testi-grid');
+  var dots=document.getElementById('testiDots');
+  if(!track||!dots)return;
+  var slides=track.querySelectorAll('img');
+  var btns=dots.querySelectorAll('button');
+  function active(){
+    var mid=track.scrollLeft+track.clientWidth/2,best=0,min=Infinity;
+    for(var i=0;i<slides.length;i++){
+      var c=slides[i].offsetLeft+slides[i].offsetWidth/2,d=Math.abs(c-mid);
+      if(d<min){min=d;best=i;}
+    }
+    for(var j=0;j<btns.length;j++)btns[j].classList.toggle('on',j===best);
+  }
+  var t;
+  track.addEventListener('scroll',function(){clearTimeout(t);t=setTimeout(active,60);},{passive:true});
+  for(var k=0;k<btns.length;k++){
+    btns[k].addEventListener('click',function(){
+      var el=slides[Number(this.getAttribute('data-i'))];
+      if(!el)return;
+      track.scrollTo({left:el.offsetLeft-(track.clientWidth-el.offsetWidth)/2,behavior:'smooth'});
+    });
+  }
+  active();
+})();
+(function(){
+  var lb=document.getElementById('lightbox'),img=document.getElementById('lbImg'),close=document.getElementById('lbClose');
+  var last=null;
+  function open(src,alt){img.src=src;img.alt=alt||'';lb.classList.add('on');document.body.style.overflow='hidden';close.focus();}
+  function shut(){lb.classList.remove('on');img.src='';document.body.style.overflow='';if(last)last.focus();}
+  var zs=document.querySelectorAll('[data-zoom]');
+  for(var i=0;i<zs.length;i++){
+    zs[i].setAttribute('tabindex','0');
+    zs[i].setAttribute('role','button');
+    zs[i].addEventListener('click',function(){last=this;open(this.currentSrc||this.src,this.alt);});
+    zs[i].addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();this.click();}});
+  }
+  close.addEventListener('click',shut);
+  lb.addEventListener('click',function(e){if(e.target===lb)shut();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('on'))shut();});
+})();
+</script>
+</body>
+</html>
